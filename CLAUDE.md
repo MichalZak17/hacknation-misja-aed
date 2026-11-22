@@ -55,7 +55,9 @@ names it (mcod, admin.mcod.local, "the dane.gov.pl instance", the harvester).
 - Hard requirements: machine-readable published data (no pdf/doc), WCAG + responsive UI, deliverables include the
   reference scope as **xlsx**, source code, a working prototype and ≥ 5 slides with screenshots.
 - Team research for the slides and pitch (NO/DK/UK registers, AED model catalogue, standards, submission rules, and
-  how it compares to our data): [docs/research/README.md](docs/research/README.md).
+  how it compares to our data): separate public repo
+  [hacknation-misja-aed-research](https://github.com/MichalZak17/hacknation-misja-aed-research), checked out locally at
+  `~/Projects/hacknation-misja-aed-research` (start with its `PITCH.md`). It is not part of this repo.
 - The brief's core user question is *where is the nearest AED, is it accessible right now, does it work*: favour
   changes that improve location precision, availability (hours, access conditions) and readiness data.
 

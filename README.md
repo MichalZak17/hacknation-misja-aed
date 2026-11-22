@@ -112,6 +112,12 @@ techniczna: część 2.
 Architekturę, model danych, zakres danych i reguły scalania opracował zespół. Gdzie i jak użyliśmy AI (w działaniu
 rozwiązania i przy jego tworzeniu): [oświadczenie](deliverables/oswiadczenie-ai.md).
 
+## Badania
+
+Badania zespołu (rejestry AED w Norwegii, Danii i Wielkiej Brytanii, katalog 56 modeli AED, normy i przepisy, notatki
+do prezentacji) są w osobnym repozytorium:
+[MichalZak17/hacknation-misja-aed-research](https://github.com/MichalZak17/hacknation-misja-aed-research).
+
 ---
 
 # Część 2 — Dokumentacja techniczna
