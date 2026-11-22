@@ -1,0 +1,67 @@
+---
+title: "mapped: plain GeoJSON / CSV / JSON feeds, mapped in code"
+nav: "mapped feeds"
+connector: mapped
+code: backend/integrations/connectors/mapped/
+---
+# mapped: plain GeoJSON / CSV / JSON feeds, mapped in code
+
+For a feed whose columns map one-to-one onto the reference fields: no joins, no value maps, no derived IDs. Anything
+more than that gets its own connector class instead, as every built-in source does. Address joins, `publiczny →
+public`, IDs derived from a hash, CSV wrapped in CSV and cross-source `refs` all need code.
+
+This is **not configured in the admin UI**. The UI shows the config read-only and lets an admin change only the area
+(`bounds`).
+
+## Adding a mapped feed
+
+Create a folder in `backend/integrations/connectors/` (an empty `__init__.py` and a `connector.py`) with a subclass
+that carries the config in `default_integration`. The registry finds the folder by itself; run `npm run seed`:
+
+```python
+from ..common import CC0
+from ..mapped.connector import MappedConnector
+
+
+class KrosnoMappedConnector(MappedConnector):
+    key = "krosno_mapped"
+    label = "Krosno (CSV, mapowane)"
+    format = "csv"
+    priority = 40
+    sync_interval_hours = 24
+    default_integration = {
+        "slug": "krosno-mapped",
+        "name": "Krosno — defibrylatory",
+        "publisher": "Gmina Miasto Krosno",
+        "source_url": "https://api.dane.gov.pl/media/resources/20240219/Defibrylator_jAmxQcp.csv",
+        "config": {
+            "format": "csv",
+            "id": "Numer Id",
+            "lat": "Szerokość geograficzna",
+            "lon": "Długość geograficzna",
+            "fields": {"building_name": "Lokalizacja", "address": "Adres"},
+            "constants": {"teryt": "1861011"},
+            "bounds": [49.64, 21.66, 49.75, 21.85],
+        },
+        **CC0,
+    }
+```
+
+Then run a dry run from the integration's page in the UI, followed by the historical sync.
+
+## Config keys
+
+| Key | Meaning |
+|---|---|
+| `format` | `geojson` (coordinates come from the geometry), `csv` (delimiter detected automatically) or `json` |
+| `id` | Source column holding a stable device ID. **Required:** rows without one are rejected as `missing_id`, and the diff relies on it staying the same between syncs. |
+| `lat`, `lon` | Coordinate columns (CSV/JSON). Ignored for GeoJSON. |
+| `items_path` | JSON only: dotted path to the list, e.g. `data.items` |
+| `fields` | `{reference_field: source_column}`. Reference fields are listed in `/api/export/schema.xlsx` and `backend/devices/schema.py`. Dates and yes/no values are converted. Everything else is copied as text, so don't map enumerations (`access`, `battery_status`, …) unless the source already uses the allowed values. |
+| `constants` | Values that apply to every record, e.g. the municipality's `teryt` |
+| `bounds` | `[min_lat, min_lon, max_lat, max_lon]`. Records outside are rejected as `outside_municipality`. |
+
+`parse()` runs `validate_config()` first and fails the sync with a readable error if the config is broken.
+
+`seed_integrations` only creates rows that don't exist yet. To change the config of an existing row, edit it in Django
+admin (`/admin/`) or delete the row and seed again.

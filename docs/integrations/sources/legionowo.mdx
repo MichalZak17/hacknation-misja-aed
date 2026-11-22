@@ -1,0 +1,44 @@
+---
+title: "legionowo: Legionowo CSV"
+nav: "legionowo"
+slug: legionowo
+connector: legionowo_csv
+code: backend/integrations/connectors/legionowo/
+---
+# legionowo: Legionowo CSV
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Data URL | `https://api.dane.gov.pl/media/resources/20260914/aed.csv` |
+| Catalogue | https://api.dane.gov.pl/1.4/datasets/40593 |
+| Format | CSV, comma-separated, UTF-8 with BOM |
+| Records | 24 (2026-11-21) |
+| Attribution | Gmina Miejska Legionowo |
+| Connector / priority | `legionowo_csv` / 50 |
+| Record key | **None in the source.** Derived as `h-` + SHA-1 of the name and address, and flagged `derived_id`. |
+| Config | `bounds: [52.37, 20.87, 52.44, 20.99]`, `teryt: 1408011` |
+
+## Example record, as returned
+
+```csv
+nazwa,cecha_ulicy,nazwa_ulicy,nr_budynku,nr_lokalu,kod_pocztowy,miejscowosc,kod_terc,kod_simc,szerokosc_geograficzna,dlugosc_geograficzna
+Urząd Miasta Legionowo,ulica,Piłsudskiego,41,,05-120,Legionowo,140801,0920806,52.395198,20.931382
+```
+
+## Mapping to reference fields
+
+| Reference field | From |
+|---|---|
+| `building_name` | `nazwa` |
+| `address` | `cecha_ulicy` (shortened, e.g. ulica → ul.) + `nazwa_ulicy` + `nr_budynku` + `/nr_lokalu` |
+| `postal_code`, `city` | `kod_pocztowy`, `miejscowosc` |
+| `simc` | `kod_simc` |
+| lat / lon | `szerokosc_geograficzna` / `dlugosc_geograficzna` |
+| `teryt` | constant from config |
+
+## Quirks
+
+- **No device ID.** If the name or address changes, the record shows up as one removed and one new.
+- **The best-structured address** of the open feeds, with official TERYT and SIMC codes.
+- **`nr_lokalu`** is always empty.

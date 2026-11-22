@@ -1,0 +1,124 @@
+{
+ "page": "/docs/publikacja",
+ "title": "Jak opublikować na dane.gov.pl · Misja AED",
+ "viewport": "desktop",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-21T22:42:47.674Z",
+ "url": "http://100.78.88.117:3001/docs/publikacja",
+ "violations": [
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 1.63,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#21d3e0",
+        "parentColor": "#7f99a3"
+       },
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>",
+     "target": [
+      "p > a[href$=\"dane.gov.pl\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  }
+ ],
+ "incomplete": [],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "document-title",
+  "empty-heading",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "tabindex",
+  "target-size"
+ ]
+}

@@ -1,0 +1,438 @@
+{
+ "page": "/export",
+ "title": "Dane do pobrania · Misja AED",
+ "viewport": "desktop",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-21T22:41:58.116Z",
+ "url": "http://100.78.88.117:3001/export",
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#e6013a",
+        "bgColor": "#07161d",
+        "contrastRatio": 3.88,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 3.88 (foreground color: #e6013a, background color: #07161d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"type-label inline-block text-hn-crimson\"><span aria-hidden=\"true\">&gt; </span>Otwarte dane · dane.gov.pl</span>",
+     "target": [
+      ".inline-block"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.88 (foreground color: #e6013a, background color: #07161d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 1.1,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#21d3e0",
+        "parentColor": "#a3bac2"
+       },
+       "relatedNodes": [
+        {
+         "html": "<p class=\"type-caption mt-4 text-muted-foreground\">Wzorcowy zakres danych (szablon dla dysponentów) jest też w CSV:<!-- --> <a href=\"/api/export/schema-template.csv\" download=\"\" class=\"text-link underline-offset-2 hover:underline\">pobierz szablon CSV</a>.</p>",
+         "target": [
+          ".mt-4.type-caption"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 1.1:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #a3bac2)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<p class=\"type-caption mt-4 text-muted-foreground\">Wzorcowy zakres danych (szablon dla dysponentów) jest też w CSV:<!-- --> <a href=\"/api/export/schema-template.csv\" download=\"\" class=\"text-link underline-offset-2 hover:underline\">pobierz szablon CSV</a>.</p>",
+         "target": [
+          ".mt-4.type-caption"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"/api/export/schema-template.csv\" download=\"\" class=\"text-link underline-offset-2 hover:underline\">pobierz szablon CSV</a>",
+     "target": [
+      ".underline-offset-2"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 1.1:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #a3bac2)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 1.63,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#21d3e0",
+        "parentColor": "#7f99a3"
+       },
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>",
+     "target": [
+      "a[href$=\"dane.gov.pl\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  }
+ ],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-csv\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-csv\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-geojson\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-geojson\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-json\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-json\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★★★<span class=\"text-subtle-foreground\"></span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-jsonld\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★<span class=\"text-subtle-foreground\">☆☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-xlsx\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-xlsx\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "definition-list",
+  "dlitem",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "tabindex",
+  "target-size"
+ ]
+}

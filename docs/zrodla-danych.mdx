@@ -1,0 +1,31 @@
+---
+title: "Źródła danych"
+nav: "Źródła danych"
+description: "Wydawcy i licencje źródeł, z których powstaje zbiór."
+order: 4
+---
+# Źródła danych
+
+Zbiór łączy rejestry miejskie, dane dysponentów i OpenStreetMap. Poniżej wydawcy i licencje, na jakich dane trafiają
+do zbioru. Lista jest odczytywana na żywo.
+
+<SourcesTable />
+
+## Opisy źródeł
+
+Każde źródło ma własny opis: skąd pobieramy dane, jak są mapowane pola i na co uważać.
+
+- [warszawa-19115](./integrations/sources/warszawa-19115.mdx): rejestr miejski Warszawy
+- [osm-poland](./integrations/sources/osm-poland.mdx): OpenAEDMap i OpenStreetMap
+- [krosno](./integrations/sources/krosno.mdx)
+- [legionowo](./integrations/sources/legionowo.mdx)
+- [marki](./integrations/sources/marki.mdx)
+- [przemysl](./integrations/sources/przemysl.mdx)
+
+Pierwszeństwo przy scalaniu: dane dysponenta urządzenia, potem miasta, na końcu OpenStreetMap.
+
+## Dane referencyjne
+
+Państwowy Rejestr Granic (PRG, Główny Urząd Geodezji i Kartografii) nie jest źródłem AED. Służy do ustalenia gminy
+(kod TERYT) i, w mieście, miejscowości na podstawie współrzędnych, gdy żadne źródło ich nie podaje. Opis:
+[gmina i miejscowość ze współrzędnych](./gmina-i-miejscowosc.mdx).

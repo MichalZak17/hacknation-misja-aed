@@ -1,0 +1,317 @@
+{
+ "page": "/docs",
+ "title": "Dokumentacja Misji AED · Misja AED",
+ "viewport": "desktop",
+ "theme": "light",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-21T22:42:10.060Z",
+ "url": "http://100.78.88.117:3001/docs",
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#5d7681",
+        "bgColor": "#f5f5f7",
+        "contrastRatio": 4.4,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<h2 class=\"type-label mb-1 px-3 text-subtle-foreground\">Dane i publikacja</h2>",
+     "target": [
+      ".lg\\:block > .gap-5.flex-col.flex > div:nth-child(1) > .mb-1"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#5d7681",
+        "bgColor": "#f5f5f7",
+        "contrastRatio": 4.4,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<h2 class=\"type-label mb-1 px-3 text-subtle-foreground\">Dodawanie źródeł</h2>",
+     "target": [
+      ".lg\\:block > .gap-5.flex-col.flex > div:nth-child(2) > .mb-1"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#5d7681",
+        "bgColor": "#f5f5f7",
+        "contrastRatio": 4.4,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<h2 class=\"type-label mb-1 px-3 text-subtle-foreground\">Opisy źródeł</h2>",
+     "target": [
+      ".lg\\:block > .gap-5.flex-col.flex > div:nth-child(3) > .mb-1"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#5d7681",
+        "bgColor": "#f5f5f7",
+        "contrastRatio": 4.4,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<h2 class=\"type-label mb-1 px-3 text-subtle-foreground\">Wzbogacanie danych</h2>",
+     "target": [
+      ".lg\\:block > .gap-5.flex-col.flex > div:nth-child(4) > .mb-1"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#5d7681",
+        "bgColor": "#f5f5f7",
+        "contrastRatio": 4.4,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"flex min-h-svh flex-col bg-frame\">",
+         "target": [
+          ".min-h-svh"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<h2 class=\"type-label mb-2 text-subtle-foreground\">Na tej stronie</h2>",
+     "target": [
+      ".mb-2"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #5d7681, background color: #f5f5f7, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 1.16,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#d10035",
+        "parentColor": "#5d7681"
+       },
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 1.16:1 with the surrounding text. (Minimum contrast is 3:1, link text: #d10035, surrounding text: #5d7681)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>",
+     "target": [
+      ".hover\\:underline.text-link[href$=\"dane.gov.pl\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 1.16:1 with the surrounding text. (Minimum contrast is 3:1, link text: #d10035, surrounding text: #5d7681)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  }
+ ],
+ "incomplete": [],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "definition-list",
+  "dlitem",
+  "document-title",
+  "empty-heading",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "tabindex",
+  "target-size"
+ ]
+}

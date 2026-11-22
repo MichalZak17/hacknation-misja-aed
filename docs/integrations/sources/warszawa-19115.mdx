@@ -1,0 +1,66 @@
+---
+title: "warszawa-19115: Warsaw AED register (19115)"
+nav: "warszawa-19115"
+slug: warszawa-19115
+connector: warsaw_arcgis
+code: backend/integrations/connectors/warszawa_19115/
+---
+# warszawa-19115: Warsaw AED register (19115)
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Catalogue | https://api.dane.gov.pl/1.4/datasets/39512 |
+| Format | ArcGIS GeoJSON with `crs: EPSG:4326` |
+| Records | 708 (2026-11-21) |
+| Attribution | Miasto Stołeczne Warszawa, warszawa19115.pl |
+| Connector / priority | `warsaw_arcgis` / 60, the highest of the open feeds |
+| Record key | `defib_id` |
+| Links to other sources | OSM nodes refer to `defib_id` with `ref:api-um-warszawa-pl` |
+| Config | `bounds: [52.09, 20.85, 52.37, 21.28]`, `teryt: 1465011` |
+
+## Example record, as returned
+
+```json
+{
+  "type": "Feature", "id": 1,
+  "geometry": { "type": "Point", "coordinates": [21.0148748890001, 52.2086170700001] },
+  "properties": {
+    "OBJECTID": 1, "defib_id": "622",
+    "object_name": "Urząd Dzielnicy Mokotów m.st. Warszawy",
+    "street": "Rakowiecka", "building_no": "25/27", "postcode": "02-517", "city": "Warszawa",
+    "device_loc": "Wewnątrz budynku", "location_desc": "Przy wejściu na półpiętrze.",
+    "public_access": "Publiczny",
+    "availability": "Ograniczona",
+    "access_desc": "Poniedziałek: godz. 8:00-18:00; Wtorek-Piątek: godz. 8:00-16:00",
+    "manufacturer": "Medtronic",
+    "specification": "Nie",
+    "longitude": 21.0148748892902, "latitude": 52.2086170695684
+  }
+}
+```
+
+This is the cleanest source: every field is filled on every record, apart from `access_desc` (612 of 708).
+
+## Mapping to reference fields
+
+| Reference field | From |
+|---|---|
+| `building_name` | `object_name` |
+| `address` | `street` + `building_no` |
+| `postal_code`, `city` | `postcode`, `city` |
+| `location_detail` | `location_desc` + `device_loc` |
+| `indoor` | `device_loc` starts with "Wewnątrz" → true, "Na zewnątrz" → false |
+| `access` | `public_access`: Publiczny → public, Prywatny → private |
+| `opening_hours_raw` | `access_desc` (free text, not OSM syntax) |
+| `manufacturer` | `manufacturer` (free text, often brand and model together) |
+| *(not stored)* | `availability`, `specification` |
+
+## Quirks
+
+- **`availability`** (Nie 511, Tak 100, Ograniczona 95) is dropped. It probably means "available around the clock".
+  If so, many devices marked `public_access: Publiczny` (608) are only reachable during office hours.
+- **`specification`** (Tak 400, Nie 179, Brak informacji 129) is dropped. The feed doesn't document what it means.
+- **`manufacturer`** is free text: "Philips", "PHILIPS", "Philips HS1" and "Philips Heartstart HS1" are all the same
+  brand. Model is mixed in, e.g. "CU Medical Systems iPAD CU-SP1".
+- **`access_desc`** is Polish free text, e.g. "Poniedziałek: godz. 8:00-18:00; …", not OSM `opening_hours`.

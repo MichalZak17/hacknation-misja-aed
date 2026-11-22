@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Telefon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: radial-gradient(circle at 70% 40%, #2a4d59 0%, #1b333c 55%, #12242b 100%);
+    display: grid; grid-template-columns: 1fr 520px; align-items: center; color: #fff;
+    font-family: Montserrat, sans-serif; overflow: hidden;
+  }
+  .left { padding-left: 190px; }
+  .left img { width: 360px; display: block; margin-bottom: 56px; }
+  .left h1 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 96px; line-height: .95; margin: 0; letter-spacing: .5px; }
+  .left h1 span { color: #e6013a; }
+  .bar { width: 140px; height: 6px; background: #e6013a; margin: 28px 0; }
+  .left p { font-size: 26px; font-weight: 500; line-height: 1.45; margin: 0; max-width: 720px; color: #d6e3e7; }
+  .phone {
+    width: 390px; height: 844px; border-radius: 54px; padding: 14px; background: #0b1418;
+    box-shadow: 0 0 0 2px #3c5a64, 0 40px 90px rgba(0,0,0,.55); position: relative;
+  }
+  .phone::before { content: ""; position: absolute; top: 24px; left: 50%; width: 110px; height: 30px; margin-left: -55px; background: #0b1418; border-radius: 20px; z-index: 2; }
+  .big .phone { transform: scale(1.17); transform-origin: center; }
+  .big { grid-template-columns: 1fr 600px; }
+  iframe { width: 390px; height: 844px; border: 0; border-radius: 42px; background: #fff; display: block; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <img src="../../marketing/logo/otwarte-aed-poziomy-negatyw.svg" alt="">
+    <h1 id="h">Ten sam serwis<br><span>w telefonie</span></h1>
+    <div class="bar"></div>
+    <p id="p">Responsywny i zgodny z WCAG 2.2 AA: duże przyciski, „Zadzwoń 112” na samej górze, nawigacja pieszo do AED.</p>
+  </div>
+  <div class="phone"><iframe id="phone" allow="geolocation" title="Misja AED na telefonie"></iframe></div>
+<script>
+  // the scene swaps the headline with set(h, p); ?big=1 enlarges the phone
+  if (new URLSearchParams(location.search).get("big")) document.body.classList.add("big");
+  // the old lines leave quickly, the new ones rise in, so the text changes together with the phone screen
+  window.set = async (h, p) => {
+    const els = [document.getElementById("h"), document.getElementById("p")];
+    await Promise.all(els.map((e) => e.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-10px)" }],
+      { duration: 180, easing: "ease-in", fill: "forwards" }).finished));
+    els[0].innerHTML = h; els[1].innerHTML = p;
+    els.forEach((e, i) => e.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }],
+      { duration: 520, delay: i * 120, easing: "cubic-bezier(.2,.7,.2,1)", fill: "both" }));
+  };
+</script>
+</body>
+</html>

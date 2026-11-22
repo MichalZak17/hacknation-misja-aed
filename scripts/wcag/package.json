@@ -1,0 +1,12 @@
+{
+  "name": "misja-aed-wcag-audit",
+  "private": true,
+  "description": "axe-core WCAG 2.2 AA audit of the Misja AED frontend (axe-core is taken from frontend/node_modules)",
+  "type": "module",
+  "scripts": {
+    "audit": "node audit.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.49.1"
+  }
+}

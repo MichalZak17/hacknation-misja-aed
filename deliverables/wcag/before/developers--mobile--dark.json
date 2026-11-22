@@ -1,0 +1,616 @@
+{
+ "page": "/developers",
+ "title": "API dla deweloperów · Misja AED",
+ "viewport": "mobile",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-21T22:43:27.664Z",
+ "url": "http://100.78.88.117:3001/developers",
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#e6013a",
+        "bgColor": "#0b1f28",
+        "contrastRatio": 3.57,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"type-label inline-block text-hn-crimson\"><span aria-hidden=\"true\">&gt; </span>API · dla deweloperów</span>",
+     "target": [
+      ".inline-block"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#e6013a",
+        "bgColor": "#0b1f28",
+        "contrastRatio": 3.57,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<li class=\"grid gap-2 bg-background p-3 sm:grid-cols-[minmax(0,1fr)_11rem] sm:items-start\">",
+         "target": [
+          ".sm\\:grid-cols-\\[minmax\\(0\\,1fr\\)_11rem\\].sm\\:items-start.grid:nth-child(1)"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"type-caption font-semibold text-hn-crimson\">wymagany</span>",
+     "target": [
+      "label[for=\"_R_1cslritmlb_-lat\"] > .text-hn-crimson.font-semibold.type-caption"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "fgColor": "#e6013a",
+        "bgColor": "#0b1f28",
+        "contrastRatio": 3.57,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": null,
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<li class=\"grid gap-2 bg-background p-3 sm:grid-cols-[minmax(0,1fr)_11rem] sm:items-start\">",
+         "target": [
+          ".sm\\:grid-cols-\\[minmax\\(0\\,1fr\\)_11rem\\].sm\\:items-start.grid:nth-child(2)"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"type-caption font-semibold text-hn-crimson\">wymagany</span>",
+     "target": [
+      "label[for=\"_R_1cslritmlb_-lon\"] > .text-hn-crimson.font-semibold.type-caption"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #e6013a, background color: #0b1f28, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 1.63,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#21d3e0",
+        "parentColor": "#7f99a3"
+       },
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<p>Misja AED · HackNation 2026 · zadanie Ministerstwa Cyfryzacji. Dane w formatach odczytywalnych maszynowo, do publikacji na<!-- --> <a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>. Mapa © współtwórcy OpenStreetMap.</p>",
+         "target": [
+          ".py-4 > p"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://dane.gov.pl\" class=\"text-link hover:text-link-hover hover:underline\">dane.gov.pl</a>",
+     "target": [
+      "a[href$=\"dane.gov.pl\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 1.63:1 with the surrounding text. (Minimum contrast is 3:1, link text: #21d3e0, surrounding text: #7f99a3)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  },
+  {
+   "id": "scrollable-region-focusable",
+   "impact": "serious",
+   "tags": [
+    "cat.keyboard",
+    "wcag2a",
+    "wcag211",
+    "wcag213",
+    "TTv5",
+    "TT4.a",
+    "EN-301-549",
+    "EN-9.2.1.1",
+    "EN-9.2.1.3",
+    "RGAAv4",
+    "RGAA-7.3.2"
+   ],
+   "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+   "help": "Scrollable region must have keyboard access",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "focusable-content",
+       "data": null,
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element should have focusable content"
+      },
+      {
+       "id": "focusable-element",
+       "data": null,
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element should be focusable"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<div data-slot=\"table-container\" class=\"relative w-full overflow-x-auto\">",
+     "target": [
+      ".my-6:nth-child(9) > .overflow-x-auto.relative[data-slot=\"table-container\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+    }
+   ]
+  }
+ ],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<header class=\"sticky top-0 z-40 border-b border-border bg-background\">",
+         "target": [
+          "header"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a class=\"type-body relative flex items-center gap-2 px-3 font-medium whitespace-nowrap transition-colors outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring text-muted-foreground hover:bg-accent hover:text-foreground\" href=\"/docs\">",
+     "target": [
+      ".hover\\:text-foreground.type-body[href$=\"docs\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<header class=\"sticky top-0 z-40 border-b border-border bg-background\">",
+         "target": [
+          "header"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a aria-current=\"page\" class=\"type-body relative flex items-center gap-2 px-3 font-medium whitespace-nowrap transition-colors outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring text-foreground\" href=\"/developers\">",
+     "target": [
+      "a[aria-current=\"page\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">true tylko dla urządzenia demonstracyjnego (demo=true).</td>",
+     "target": [
+      "tr:nth-child(1) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Punkt, od którego liczono odległość.</td>",
+     "target": [
+      "tr:nth-child(2) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Odległość w linii prostej, w metrach (geodezyjna, WGS84).</td>",
+     "target": [
+      "tr:nth-child(3) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Pełny rekord AED: każde pole wzorcowego zakresu danych (jak w eksportach), plus municipality i updated_at. null = źródło tego nie podaje.</td>",
+     "target": [
+      "tr:nth-child(4) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Szczegóły urządzenia z pochodzeniem każdego pola (null dla demo).</td>",
+     "target": [
+      "tr:nth-child(5) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Urządzenie na mapie OpenStreetMap.</td>",
+     "target": [
+      "tr:nth-child(6) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Trasa piesza od punktu zapytania do AED w Mapach Google.</td>",
+     "target": [
+      "tr:nth-child(7) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-required-children",
+  "aria-required-parent",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "empty-table-header",
+  "form-field-multiple-labels",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "label-title-only",
+  "label",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "scrollable-region-focusable",
+  "select-name",
+  "skip-link",
+  "tabindex",
+  "table-duplicate-name",
+  "target-size",
+  "td-headers-attr",
+  "th-has-data-cells"
+ ]
+}

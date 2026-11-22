@@ -1,0 +1,323 @@
+{
+ "page": "/export",
+ "title": "Dane do pobrania · Misja AED",
+ "viewport": "desktop",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-22T00:21:36.816Z",
+ "url": "http://100.78.88.117:3001/export",
+ "violations": [],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-csv\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-csv\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-geojson\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-geojson\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★<span class=\"text-subtle-foreground\">☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-json\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-json\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★★★★<span class=\"text-subtle-foreground\"></span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-jsonld\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span aria-hidden=\"true\" class=\"tracking-[0.1em] text-hn-crimson\">★★<span class=\"text-subtle-foreground\">☆☆☆</span></span>",
+     "target": [
+      "article[aria-labelledby=\"res-xlsx\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "messageKey": "nonBmp"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content contains only non-text characters"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<span class=\"text-subtle-foreground\">☆☆☆</span>",
+     "target": [
+      "article[aria-labelledby=\"res-xlsx\"] > .items-start.justify-between.gap-2 > .gap-1.inline-flex.items-center > .tracking-\\[0\\.1em\\].text-hn-crimson[aria-hidden=\"true\"] > .text-subtle-foreground"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+    }
+   ]
+  },
+  {
+   "id": "th-has-data-cells",
+   "impact": "serious",
+   "tags": [
+    "cat.tables",
+    "wcag2a",
+    "wcag131",
+    "section508",
+    "section508.22.g",
+    "TTv5",
+    "TT14.b",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-5.7.1"
+   ],
+   "description": "Ensure that <th> elements and elements with role=columnheader/rowheader have data cells they describe",
+   "help": "Table headers in a data table must refer to data cells",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/th-has-data-cells?application=axeAPI",
+   "nodes": [
+    {
+     "any": [],
+     "all": [
+      {
+       "id": "th-has-data-cells",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<th scope=\"rowgroup\" colspan=\"8\" class=\"px-0 py-1.5 text-left\"><span class=\"type-label sticky left-0 inline-block px-3 text-foreground\">Poziom 3 · Pełny<span class=\"font-normal text-muted-foreground\"> — dane serwisowe dysponenta</span></span></th>",
+         "target": [
+          "tbody:nth-child(5) > .bg-muted > .px-0[scope=\"rowgroup\"][colspan=\"8\"]"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Table data cells are missing or empty"
+      }
+     ],
+     "none": [],
+     "impact": "serious",
+     "html": "<table class=\"w-full border-collapse text-sm\">",
+     "target": [
+      "table"
+     ],
+     "failureSummary": "Fix all of the following:\n  Table data cells are missing or empty"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "definition-list",
+  "dlitem",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "empty-table-header",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "scope-attr-valid",
+  "skip-link",
+  "tabindex",
+  "table-duplicate-name",
+  "target-size",
+  "td-headers-attr"
+ ]
+}

@@ -1,0 +1,26 @@
+---
+title: "Słownik danych"
+nav: "Słownik danych"
+description: "Wszystkie pola rekordu AED, ich typy i przykłady, z podziałem na trzy poziomy zakresu."
+order: 3
+---
+# Słownik danych
+
+Każde urządzenie to jeden rekord o tych samych polach. Pola mają trzy poziomy zakresu:
+
+- **1, podstawowy**: wystarcza, żeby znaleźć urządzenie. Wymagane są identyfikator, współrzędne, dostępność i stan
+  urządzenia; pozostałe pola mogą być puste.
+- **2, rozszerzony**: dostępność i lokalizacja w obiekcie, czyli czy urządzenie jest dostępne teraz i gdzie dokładnie
+  stoi.
+- **3, pełny**: dane serwisowe dysponenta, np. przeglądy i stan gotowości.
+
+Słownik w postaci plików (XLSX: szablon z przykładowymi wierszami, słownik pól, dozwolone wartości i instrukcja;
+ten sam szablon jako [CSV](/api/export/schema-template.csv)):
+
+<DictionaryDownloads />
+
+## Pola rekordu
+
+Przefiltruj tabelę po poziomie, żeby zobaczyć tylko wybrany zakres.
+
+<SchemaTable />

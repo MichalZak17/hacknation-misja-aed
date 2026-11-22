@@ -1,0 +1,33 @@
+# Local Postgres (with PostGIS) and Redis for `npm run backend`. Ports are off the defaults so this runs beside
+# other projects' databases (5432 local Postgres, 5433/6379 oopswhat).
+name: misja-aed
+
+services:
+  postgres:
+    build: ./docker/postgres
+    image: misja-aed-postgis:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-misja_aed}
+      POSTGRES_USER: ${POSTGRES_USER:-misja_aed}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-misja_aed}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      retries: 20
+
+  # /0 = Celery broker, /1 = Django cache (exports, API responses, sync locks)
+  redis:
+    image: redis:8
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6380}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      retries: 20
+
+volumes:
+  postgres:

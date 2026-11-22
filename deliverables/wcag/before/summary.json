@@ -1,0 +1,1910 @@
+{
+ "axeVersion": "4.14.1",
+ "base": "http://100.78.88.117:3001",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa",
+  "best-practice"
+ ],
+ "date": "2026-11-21T22:41:02.205Z",
+ "ids": {
+  "device": "AED-PL-000128",
+  "slug": "warszawa-19115"
+ },
+ "runs": [
+  {
+   "page": "home",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(1)"
+   ],
+   "consoleErrors": [],
+   "file": "home--desktop--light.json"
+  },
+  {
+   "page": "home",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(1)"
+   ],
+   "consoleErrors": [],
+   "file": "home--desktop--dark.json"
+  },
+  {
+   "page": "home",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(3)"
+   ],
+   "consoleErrors": [],
+   "file": "home--mobile--light.json"
+  },
+  {
+   "page": "home",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(3)"
+   ],
+   "consoleErrors": [],
+   "file": "home--mobile--dark.json"
+  },
+  {
+   "page": "home-results",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(3)"
+   ],
+   "consoleErrors": [],
+   "file": "home-results--desktop--light.json"
+  },
+  {
+   "page": "home-results",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(3)"
+   ],
+   "consoleErrors": [],
+   "file": "home-results--desktop--dark.json"
+  },
+  {
+   "page": "home-results",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(7)"
+   ],
+   "consoleErrors": [],
+   "file": "home-results--mobile--light.json"
+  },
+  {
+   "page": "home-results",
+   "path": "/",
+   "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(7)"
+   ],
+   "consoleErrors": [],
+   "file": "home-results--mobile--dark.json"
+  },
+  {
+   "page": "export",
+   "path": "/export",
+   "title": "Dane do pobrania · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(9)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "export--desktop--light.json"
+  },
+  {
+   "page": "export",
+   "path": "/export",
+   "title": "Dane do pobrania · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(9)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "export--desktop--dark.json"
+  },
+  {
+   "page": "export",
+   "path": "/export",
+   "title": "Dane do pobrania · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(11)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "export--mobile--light.json"
+  },
+  {
+   "page": "export",
+   "path": "/export",
+   "title": "Dane do pobrania · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(2)"
+   ],
+   "incomplete": [
+    "color-contrast(11)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "export--mobile--dark.json"
+  },
+  {
+   "page": "docs",
+   "path": "/docs",
+   "title": "Dokumentacja Misji AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 6,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(5)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs--desktop--light.json"
+  },
+  {
+   "page": "docs",
+   "path": "/docs",
+   "title": "Dokumentacja Misji AED · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs--desktop--dark.json"
+  },
+  {
+   "page": "docs",
+   "path": "/docs",
+   "title": "Dokumentacja Misji AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs--mobile--light.json"
+  },
+  {
+   "page": "docs",
+   "path": "/docs",
+   "title": "Dokumentacja Misji AED · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs--mobile--dark.json"
+  },
+  {
+   "page": "docs-slownik-danych",
+   "path": "/docs/slownik-danych",
+   "title": "Słownik danych · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 5,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(4)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-slownik-danych--desktop--light.json"
+  },
+  {
+   "page": "docs-slownik-danych",
+   "path": "/docs/slownik-danych",
+   "title": "Słownik danych · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-slownik-danych--desktop--dark.json"
+  },
+  {
+   "page": "docs-slownik-danych",
+   "path": "/docs/slownik-danych",
+   "title": "Słownik danych · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:scrollable-region-focusable(1)"
+   ],
+   "incomplete": [
+    "color-contrast(191)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-slownik-danych--mobile--light.json"
+  },
+  {
+   "page": "docs-slownik-danych",
+   "path": "/docs/slownik-danych",
+   "title": "Słownik danych · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:scrollable-region-focusable(1)"
+   ],
+   "incomplete": [
+    "color-contrast(191)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-slownik-danych--mobile--dark.json"
+  },
+  {
+   "page": "docs-publikacja",
+   "path": "/docs/publikacja",
+   "title": "Jak opublikować na dane.gov.pl · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 6,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(5)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-publikacja--desktop--light.json"
+  },
+  {
+   "page": "docs-publikacja",
+   "path": "/docs/publikacja",
+   "title": "Jak opublikować na dane.gov.pl · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-publikacja--desktop--dark.json"
+  },
+  {
+   "page": "docs-publikacja",
+   "path": "/docs/publikacja",
+   "title": "Jak opublikować na dane.gov.pl · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-publikacja--mobile--light.json"
+  },
+  {
+   "page": "docs-publikacja",
+   "path": "/docs/publikacja",
+   "title": "Jak opublikować na dane.gov.pl · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-publikacja--mobile--dark.json"
+  },
+  {
+   "page": "docs-godziny-dostepnosci",
+   "path": "/docs/godziny-dostepnosci",
+   "title": "Godziny dostępności · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 6,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(5)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-godziny-dostepnosci--desktop--light.json"
+  },
+  {
+   "page": "docs-godziny-dostepnosci",
+   "path": "/docs/godziny-dostepnosci",
+   "title": "Godziny dostępności · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-godziny-dostepnosci--desktop--dark.json"
+  },
+  {
+   "page": "docs-godziny-dostepnosci",
+   "path": "/docs/godziny-dostepnosci",
+   "title": "Godziny dostępności · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-godziny-dostepnosci--mobile--light.json"
+  },
+  {
+   "page": "docs-godziny-dostepnosci",
+   "path": "/docs/godziny-dostepnosci",
+   "title": "Godziny dostępności · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "docs-godziny-dostepnosci--mobile--dark.json"
+  },
+  {
+   "page": "developers",
+   "path": "/developers",
+   "title": "API dla deweloperów · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "developers--desktop--light.json"
+  },
+  {
+   "page": "developers",
+   "path": "/developers",
+   "title": "API dla deweloperów · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 4,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(3)",
+    "serious:link-in-text-block(1)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "developers--desktop--dark.json"
+  },
+  {
+   "page": "developers",
+   "path": "/developers",
+   "title": "API dla deweloperów · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:scrollable-region-focusable(1)"
+   ],
+   "incomplete": [
+    "color-contrast(9)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "developers--mobile--light.json"
+  },
+  {
+   "page": "developers",
+   "path": "/developers",
+   "title": "API dla deweloperów · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 5,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(3)",
+    "serious:link-in-text-block(1)",
+    "serious:scrollable-region-focusable(1)"
+   ],
+   "incomplete": [
+    "color-contrast(9)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+   ],
+   "file": "developers--mobile--dark.json"
+  },
+  {
+   "page": "login",
+   "path": "/login",
+   "title": "Logowanie · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 2,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 6,
+    "minor": 0
+   },
+   "rules": [
+    "moderate:landmark-one-main(1)",
+    "moderate:region(5)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [],
+   "file": "login--desktop--light.json"
+  },
+  {
+   "page": "login",
+   "path": "/login",
+   "title": "Logowanie · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 2,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 6,
+    "minor": 0
+   },
+   "rules": [
+    "moderate:landmark-one-main(1)",
+    "moderate:region(5)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [],
+   "file": "login--desktop--dark.json"
+  },
+  {
+   "page": "login",
+   "path": "/login",
+   "title": "Logowanie · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 2,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 6,
+    "minor": 0
+   },
+   "rules": [
+    "moderate:landmark-one-main(1)",
+    "moderate:region(5)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [],
+   "file": "login--mobile--light.json"
+  },
+  {
+   "page": "login",
+   "path": "/login",
+   "title": "Logowanie · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 2,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 6,
+    "minor": 0
+   },
+   "rules": [
+    "moderate:landmark-one-main(1)",
+    "moderate:region(5)"
+   ],
+   "incomplete": [],
+   "consoleErrors": [],
+   "file": "login--mobile--dark.json"
+  },
+  {
+   "page": "not-found",
+   "path": "/nie-ma-takiej-strony",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ],
+   "file": "not-found--desktop--light.json"
+  },
+  {
+   "page": "not-found",
+   "path": "/nie-ma-takiej-strony",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(2)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ],
+   "file": "not-found--desktop--dark.json"
+  },
+  {
+   "page": "not-found",
+   "path": "/nie-ma-takiej-strony",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(1)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ],
+   "file": "not-found--mobile--light.json"
+  },
+  {
+   "page": "not-found",
+   "path": "/nie-ma-takiej-strony",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(1)"
+   ],
+   "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ],
+   "file": "not-found--mobile--dark.json"
+  },
+  {
+   "page": "panel",
+   "path": "/panel",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "panel--desktop--light.json"
+  },
+  {
+   "page": "panel",
+   "path": "/panel",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "panel--desktop--dark.json"
+  },
+  {
+   "page": "panel",
+   "path": "/panel",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(26)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "panel--mobile--light.json"
+  },
+  {
+   "page": "panel",
+   "path": "/panel",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(26)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "panel--mobile--dark.json"
+  },
+  {
+   "page": "map",
+   "path": "/map",
+   "title": "Mapa · Misja AED",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)"
+   ],
+   "incomplete": [
+    "color-contrast(3)",
+    "label-content-name-mismatch(1)",
+    "link-in-text-block(1)"
+   ],
+   "consoleErrors": [],
+   "file": "map--desktop--light.json"
+  },
+  {
+   "page": "map",
+   "path": "/map",
+   "title": "Mapa · Misja AED",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(3)",
+    "label-content-name-mismatch(1)",
+    "link-in-text-block(1)"
+   ],
+   "consoleErrors": [],
+   "file": "map--desktop--dark.json"
+  },
+  {
+   "page": "map",
+   "path": "/map",
+   "title": "Mapa · Misja AED",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)"
+   ],
+   "incomplete": [
+    "color-contrast(3)",
+    "label-content-name-mismatch(1)",
+    "link-in-text-block(1)"
+   ],
+   "consoleErrors": [],
+   "file": "map--mobile--light.json"
+  },
+  {
+   "page": "map",
+   "path": "/map",
+   "title": "Mapa · Misja AED",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(3)",
+    "label-content-name-mismatch(1)",
+    "link-in-text-block(1)"
+   ],
+   "consoleErrors": [],
+   "file": "map--mobile--dark.json"
+  },
+  {
+   "page": "devices",
+   "path": "/devices",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "devices--desktop--light.json"
+  },
+  {
+   "page": "devices",
+   "path": "/devices",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "devices--desktop--dark.json"
+  },
+  {
+   "page": "devices",
+   "path": "/devices",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(166)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "devices--mobile--light.json"
+  },
+  {
+   "page": "devices",
+   "path": "/devices",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(166)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "devices--mobile--dark.json"
+  },
+  {
+   "page": "device-detail",
+   "path": "/devices/AED-PL-000128",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:nested-interactive(2)"
+   ],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "device-detail--desktop--light.json"
+  },
+  {
+   "page": "device-detail",
+   "path": "/devices/AED-PL-000128",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:nested-interactive(2)"
+   ],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "device-detail--desktop--dark.json"
+  },
+  {
+   "page": "device-detail",
+   "path": "/devices/AED-PL-000128",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:nested-interactive(2)"
+   ],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "device-detail--mobile--light.json"
+  },
+  {
+   "page": "device-detail",
+   "path": "/devices/AED-PL-000128",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 2,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 3,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:link-in-text-block(1)",
+    "serious:nested-interactive(2)"
+   ],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "device-detail--mobile--dark.json"
+  },
+  {
+   "page": "integrations",
+   "path": "/integrations",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integrations--desktop--light.json"
+  },
+  {
+   "page": "integrations",
+   "path": "/integrations",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integrations--desktop--dark.json"
+  },
+  {
+   "page": "integrations",
+   "path": "/integrations",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integrations--mobile--light.json"
+  },
+  {
+   "page": "integrations",
+   "path": "/integrations",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integrations--mobile--dark.json"
+  },
+  {
+   "page": "integration-detail",
+   "path": "/integrations/warszawa-19115",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)"
+   ],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integration-detail--desktop--light.json"
+  },
+  {
+   "page": "integration-detail",
+   "path": "/integrations/warszawa-19115",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integration-detail--desktop--dark.json"
+  },
+  {
+   "page": "integration-detail",
+   "path": "/integrations/warszawa-19115",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 1,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [
+    "serious:color-contrast(1)"
+   ],
+   "incomplete": [
+    "color-contrast(8)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integration-detail--mobile--light.json"
+  },
+  {
+   "page": "integration-detail",
+   "path": "/integrations/warszawa-19115",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "color-contrast(8)",
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "integration-detail--mobile--dark.json"
+  },
+  {
+   "page": "matches",
+   "path": "/matches",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "matches--desktop--light.json"
+  },
+  {
+   "page": "matches",
+   "path": "/matches",
+   "title": "Misja AED · dane",
+   "viewport": "desktop",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "matches--desktop--dark.json"
+  },
+  {
+   "page": "matches",
+   "path": "/matches",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "light",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "matches--mobile--light.json"
+  },
+  {
+   "page": "matches",
+   "path": "/matches",
+   "title": "Misja AED · dane",
+   "viewport": "mobile",
+   "theme": "dark",
+   "counts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "nodeCounts": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+   },
+   "rules": [],
+   "incomplete": [
+    "label-content-name-mismatch(1)"
+   ],
+   "consoleErrors": [],
+   "file": "matches--mobile--dark.json"
+  }
+ ],
+ "total": {
+  "critical": 0,
+  "serious": 61,
+  "moderate": 8,
+  "minor": 0
+ },
+ "totalNodes": {
+  "critical": 0,
+  "serious": 96,
+  "moderate": 24,
+  "minor": 0
+ }
+}

@@ -1,0 +1,41 @@
+[project]
+name = "misja-aed-backend"
+version = "0.1.0"
+description = "Misja AED: AED data from many sources, synced, merged and exported for dane.gov.pl"
+requires-python = ">=3.13"
+dependencies = [
+    "celery>=5.5",
+    "django>=6.0",
+    "django-ninja>=1.4",
+    "httpx>=0.28",
+    "openpyxl>=3.1",
+    "psycopg[binary]>=3.2",
+    "pyshp>=3.1.9",
+    "python-dotenv>=1.1",
+    "redis>=6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4",
+    "pytest-django>=4.11",
+    "ruff>=0.12",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py"]
+addopts = "--reuse-db"
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["*/migrations/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "DJ", "SIM"]
+# DJ001: null on text fields is deliberate (null = the source doesn't say; "" would claim a value)
+# E501: the formatter owns line length; long string literals stay readable on one line
+ignore = ["DJ001", "E501"]

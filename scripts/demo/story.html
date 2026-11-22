@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Historia</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0b1f28; color: #fff; font-family: Montserrat, sans-serif; }
+  .slide { position: absolute; left: 190px; right: 190px; top: 50%; transform: translateY(-50%); opacity: 0; transition: opacity .6s; }
+  .slide.on { opacity: 1; }
+  .k { font-family: "JetBrains Mono", monospace; color: #e6013a; font-size: 32px; letter-spacing: 1px; margin-bottom: 26px; }
+  .l { font-family: "Bebas Neue", sans-serif; font-size: 128px; line-height: .98; opacity: 0; transform: translateY(18px); transition: opacity .9s, transform .9s; }
+  .l.r { color: #e6013a; }
+  .l.on { opacity: 1; transform: none; }
+  .s { font-size: 34px; color: #b9ccd2; margin-top: 30px; opacity: 0; transition: opacity .9s; }
+  .s.on { opacity: 1; }
+  .src { position: absolute; right: 120px; bottom: 70px; font-family: "JetBrains Mono", monospace; font-size: 20px; color: #6d8790; }
+  img { width: 560px; display: block; margin-bottom: 50px; }
+</style>
+</head>
+<body>
+  <div class="slide" id="a"><div class="k">WARSZAWA, 3 MARCA</div><div class="l">Zawał w centrum miasta.</div><div class="l r">Liczy się każda minuta.</div></div>
+  <div class="slide" id="b"><div class="l">Świadkowie szukają defibrylatora.</div><div class="l r">Są w pobliżu, ale w zamkniętych budynkach.</div><div class="s">Defibrylator jest, tylko nie da się do niego dojść. Liczy się ten dostępny teraz.</div></div>
+  <div class="slide" id="c"><div class="l">Nie ma kompletnej mapy AED.</div><div class="s">Dane są rozproszone, niepełne i często niezweryfikowane.</div></div>
+  <div class="slide" id="d"><img src="../../marketing/logo/otwarte-aed-poziomy-negatyw.svg" alt=""><div class="l">Misja AED</div><div class="l r">Jeden otwarty zbiór dla całej Polski.</div><div class="s">Gotowy do publikacji na dane.gov.pl, aktualizowany codziennie.</div></div>
+  <div class="src">na podstawie opisu wyzwania „Misja AED – Dane na ratunek”</div>
+<script>
+  // step(id): fade the current slide out completely, then show that slide and reveal its lines one by one
+  // (slides are centred and differ in height, so overlapping them would put text on text)
+  window.step = (id) => {
+    const cur = document.querySelector(".slide.on");
+    const show = () => {
+      document.getElementById(id).classList.add("on");
+      const lines = document.querySelectorAll(`#${id} .l, #${id} .s`);
+      lines.forEach((l, i) => setTimeout(() => l.classList.add("on"), 300 + i * 1100));
+    };
+    if (cur) { cur.classList.remove("on"); setTimeout(show, 700); } else show();
+  };
+</script>
+</body>
+</html>

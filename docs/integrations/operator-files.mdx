@@ -1,0 +1,57 @@
+---
+title: "Operator files (upload)"
+connector: operator_file
+code: backend/integrations/connectors/operator_file/
+---
+# Operator files (upload)
+
+**Direction: the operator sends us the data, but through a person. There is no automatic push.**
+
+An *operator* (dysponent) is whoever owns and maintains AEDs: a city, a school, a transport company. Operators are the
+only source of hardware and upkeep data: serial numbers, pads and battery expiry, inspections and self-tests. None of
+the open feeds publish any of this, which is why every device currently shows **Brak danych serwisowych**.
+
+```
+operator ──(e-mail / ePUAP / shared drive)──► admin ──(UI: "Wgraj plik")──► platform ──► sync
+```
+
+The operator never connects to the platform. An admin receives the file and uploads it.
+
+## File format
+
+A CSV or XLSX in the **reference schema**. The template is the first sheet of `GET /api/export/schema.xlsx` (or
+`GET /api/export/schema-template.csv`): filled in, it uploads as is. Its example rows (`PRZYKLAD-…`) are skipped.
+
+- **Column names:** either the field name (`serial_number`) or its Polish label (`Numer seryjny`). Matching ignores
+  case. Unknown columns are ignored.
+- **ID:** the record ID is `id`, falling back to `serial_number`, then `inventory_number`. A row with none of these
+  gets `row-<n>`, is flagged `missing_id` and treated as invalid.
+- **Required for a device:** `lat` and `lon`, in WGS84.
+- **Dates:** `YYYY-MM-DD` or `DD.MM.YYYY`. Anything else is flagged `bad_date:<field>`. `last_self_test_at` is ISO
+  8601 date and time; without an offset it is read as Polish local time, and it is stored in UTC.
+- **`access_conditions`:** allowed values separated by `;`. Anything else is flagged `bad_value:access_conditions`.
+- **Enumerations** such as `battery_status` and `access`: must use the allowed values. Anything else is flagged
+  `bad_value:<field>`.
+- **XLSX:** only the first sheet is read, with the header in row 1.
+
+## Setting it up from the UI
+
+Every step works in the UI. This is the only kind of integration the UI creates: the file follows the reference
+schema, so there is nothing to configure.
+
+1. **Integracje → Nowy dysponent.** Enter the name, the operator/publisher and the
+   operator's website. It is created with priority 90, so operator data wins over open feeds, and with periodic
+   sync off.
+2. On the new integration's page, **Wgraj plik**: choose the CSV/XLSX. The file is stored in
+   `backend/var/uploads/<slug>/`. Only the latest upload is used.
+3. **Test (dry run)** to check counts and issues without saving.
+4. **Synchronizacja historyczna** for the first load. For later files, upload again and click **Synchronizuj teraz**.
+   The diff marks devices that disappeared from the new file as *removed*.
+
+## Limits
+
+- **Only one file per operator at a time.** Each upload replaces the previous one; every file is kept on disk, but
+  only the newest one is synced.
+- **No URL option here.** If an operator publishes its register at a URL, add it as a connector in code (a new folder
+  in `backend/integrations/connectors/`; see [mapped feeds](./mapped-feeds.mdx) for plain feeds).
+- **No inbound API or webhook.** The operator's file always goes through an admin's upload.

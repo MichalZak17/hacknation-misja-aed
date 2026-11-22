@@ -1,0 +1,235 @@
+{
+ "page": "/devices/AED-PL-000128",
+ "title": "Misja AED · dane",
+ "viewport": "mobile",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-21T22:45:06.403Z",
+ "url": "http://100.78.88.117:3001/devices/AED-PL-000128",
+ "violations": [
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "link-in-text-block",
+       "data": {
+        "messageKey": "fgContrast",
+        "contrastRatio": 2.02,
+        "requiredContrastRatio": 3,
+        "nodeColor": "#404040",
+        "parentColor": "#000000"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"maplibregl-ctrl-attrib-inner\">© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a> contributors</div>",
+         "target": [
+          ".maplibregl-ctrl-attrib-inner"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has insufficient color contrast of 2.02:1 with the surrounding text. (Minimum contrast is 3:1, link text: #404040, surrounding text: #000000)"
+      },
+      {
+       "id": "link-in-text-block-style",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<div class=\"maplibregl-ctrl-attrib-inner\">© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a> contributors</div>",
+         "target": [
+          ".maplibregl-ctrl-attrib-inner"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "The link has no styling (such as underline) to distinguish it from the surrounding text"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a>",
+     "target": [
+      "a[rel=\"noopener\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.02:1 with the surrounding text. (Minimum contrast is 3:1, link text: #404040, surrounding text: #000000)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  },
+  {
+   "id": "nested-interactive",
+   "impact": "serious",
+   "tags": [
+    "cat.keyboard",
+    "wcag2a",
+    "wcag412",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "RGAAv4",
+    "RGAA-7.1.1"
+   ],
+   "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+   "help": "Interactive controls must not be nested",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/nested-interactive?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "no-focusable-content",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<a class=\"font-medium text-link hover:text-link-hover hover:underline\" href=\"/integrations/legionowo\">Legionowo — AED</a>",
+         "target": [
+          "a[href$=\"legionowo\"]"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has focusable descendants. Move them outside of the element, or remove them."
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<summary class=\"flex cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden\">",
+     "target": [
+      "li:nth-child(1) > .group > .list-none.\\[\\&\\:\\:-webkit-details-marker\\]\\:hidden"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has focusable descendants. Move them outside of the element, or remove them."
+    },
+    {
+     "any": [
+      {
+       "id": "no-focusable-content",
+       "data": null,
+       "relatedNodes": [
+        {
+         "html": "<a class=\"font-medium text-link hover:text-link-hover hover:underline\" href=\"/integrations/osm-poland\">OpenAEDMap Polska / OpenStreetMap</a>",
+         "target": [
+          "a[href$=\"osm-poland\"]"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element has focusable descendants. Move them outside of the element, or remove them."
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<summary class=\"flex cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden\">",
+     "target": [
+      "li:nth-child(2) > .group > .list-none.\\[\\&\\:\\:-webkit-details-marker\\]\\:hidden"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element has focusable descendants. Move them outside of the element, or remove them."
+    }
+   ]
+  }
+ ],
+ "incomplete": [
+  {
+   "id": "label-content-name-mismatch",
+   "impact": "serious",
+   "tags": [
+    "cat.semantics",
+    "wcag21a",
+    "wcag253",
+    "EN-301-549",
+    "EN-9.2.5.3",
+    "RGAAv4",
+    "RGAA-6.1.5"
+   ],
+   "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+   "help": "Elements must have their visible text as part of their accessible name",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "label-content-name-mismatch",
+       "data": null,
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Unable to determine if the visible text is part of the accessible name"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<button data-slot=\"dropdown-menu-trigge...\" data-variant=\"ghost\" data-size=\"sm\" class=\"group/button inline-...\" aria-label=\"Konto: admin@admin.c...\" type=\"button\" id=\"radix-_R_1peitmlb_\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-state=\"closed\">",
+     "target": [
+      "#radix-_R_1peitmlb_"
+     ],
+     "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "definition-list",
+  "dlitem",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "summary-name",
+  "tabindex",
+  "target-size"
+ ]
+}

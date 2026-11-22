@@ -1,0 +1,20 @@
+{
+  "name": "hacknation-misja-aed",
+  "private": true,
+  "description": "Convenience scripts: the Django backend lives in backend/ (uv), the Next.js frontend in frontend/ (its own package.json and lockfile)",
+  "scripts": {
+    "setup": "cd backend && uv sync && cd .. && npm --prefix frontend install",
+    "backend": "./scripts/dev-backend.sh",
+    "frontend": "npm --prefix frontend run dev --",
+    "db": "docker compose -f backend/docker-compose.yml up -d --wait postgres redis",
+    "db:stop": "docker compose -f backend/docker-compose.yml stop",
+    "seed": "cd backend && uv run python manage.py seed",
+    "sync": "cd backend && uv run python manage.py sync",
+    "manage": "cd backend && uv run python manage.py",
+    "test": "cd backend && uv run pytest",
+    "format:backend": "cd backend && uv run ruff check --fix . && uv run ruff format .",
+    "build": "npm --prefix frontend run build --",
+    "lint": "npm --prefix frontend run lint --",
+    "typecheck": "npm --prefix frontend run typecheck --"
+  }
+}

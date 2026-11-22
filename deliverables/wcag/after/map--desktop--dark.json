@@ -1,0 +1,228 @@
+{
+ "page": "/map",
+ "title": "Mapa · Misja AED",
+ "viewport": "desktop",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-22T00:24:20.249Z",
+ "url": "http://100.78.88.117:3001/map",
+ "violations": [],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "7.5pt (10px)",
+        "fontWeight": "normal",
+        "messageKey": "imgNode",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"maplibregl-ctrl maplibregl-ctrl-scale\" style=\"width: 87.8207px;\">100&nbsp;km</div>",
+         "target": [
+          ".maplibregl-ctrl-scale"
+         ]
+        },
+        {
+         "html": "<canvas class=\"maplibregl-canvas\" tabindex=\"0\" aria-label=\"Map\" role=\"region\" width=\"1377\" height=\"648\" style=\"width: 1377px; height: 648px;\"></canvas>",
+         "target": [
+          "canvas"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because element contains an image node"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<div class=\"maplibregl-ctrl maplibregl-ctrl-scale\" style=\"width: 87.8207px;\">100&nbsp;km</div>",
+     "target": [
+      ".maplibregl-ctrl-scale"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": "imgNode",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<details class=\"maplibregl-ctrl maplibregl-ctrl-attrib\" open=\"\">",
+         "target": [
+          "details"
+         ]
+        },
+        {
+         "html": "<canvas class=\"maplibregl-canvas\" tabindex=\"0\" aria-label=\"Map\" role=\"region\" width=\"1377\" height=\"648\" style=\"width: 1377px; height: 648px;\"></canvas>",
+         "target": [
+          "canvas"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because element contains an image node"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<div class=\"maplibregl-ctrl-attrib-inner\">© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a> contributors</div>",
+     "target": [
+      ".maplibregl-ctrl-attrib-inner"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": "imgNode",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<details class=\"maplibregl-ctrl maplibregl-ctrl-attrib\" open=\"\">",
+         "target": [
+          "details"
+         ]
+        },
+        {
+         "html": "<canvas class=\"maplibregl-canvas\" tabindex=\"0\" aria-label=\"Map\" role=\"region\" width=\"1377\" height=\"648\" style=\"width: 1377px; height: 648px;\"></canvas>",
+         "target": [
+          "canvas"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because element contains an image node"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a>",
+     "target": [
+      "a[target=\"_blank\"]"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+    }
+   ]
+  },
+  {
+   "id": "label-content-name-mismatch",
+   "impact": "serious",
+   "tags": [
+    "cat.semantics",
+    "wcag21a",
+    "wcag253",
+    "EN-301-549",
+    "EN-9.2.5.3",
+    "RGAAv4",
+    "RGAA-6.1.5"
+   ],
+   "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+   "help": "Elements must have their visible text as part of their accessible name",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "label-content-name-mismatch",
+       "data": null,
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Unable to determine if the visible text is part of the accessible name"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<button data-slot=\"dropdown-menu-trigge...\" data-variant=\"ghost\" data-size=\"sm\" class=\"group/button inline-...\" aria-label=\"Konto: admin@admin.c...\" type=\"button\" id=\"radix-_R_1teitmlb_\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-state=\"closed\">",
+     "target": [
+      "#radix-_R_1teitmlb_"
+     ],
+     "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "document-title",
+  "empty-heading",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "landmark-banner-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "tabindex",
+  "target-size"
+ ]
+}

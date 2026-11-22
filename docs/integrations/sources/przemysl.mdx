@@ -1,0 +1,61 @@
+---
+title: "przemysl: Przemyśl (skyCMS)"
+nav: "przemysl"
+slug: przemysl
+connector: przemysl_geojson
+code: backend/integrations/connectors/przemysl/
+---
+# przemysl: Przemyśl (skyCMS)
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Data URL | `https://przemysl.skycms.com.pl/open-data/20/1730818801_b50R6UVxPgoVdBbq/geojson` |
+| Catalogue | https://api.dane.gov.pl/1.4/datasets/4581 (declares daily updates) |
+| Format | GeoJSON exported from the city website's CMS |
+| Records | 21 (2026-11-21) |
+| Attribution | Gmina Miejska Przemyśl |
+| Connector / priority | `przemysl_geojson` / 50 |
+| Record key | `id` (the CMS entry ID, not the device number) |
+| Config | `bounds: [49.73, 22.66, 49.84, 22.88]`, `teryt: 1862011` |
+
+## Example record, as returned
+
+```json
+{
+  "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [22.7582092, 49.7972693] },
+  "properties": {
+    "id": 746,
+    "name": "Defibrylator (AED 9579) w Szkole Podstawowej Nr 6 w Przemyślu",
+    "description": "Defibrylator AED (Automated External Defibrillator) to przenośne urządzenie medyczne… [~1,200 chars]",
+    "category": "Defibrylatory AED",
+    "city": "Przemyśl", "street": "Generała Mieczysława Boruty Spiechowicza", "home_number": "1", "postcode": "37-700",
+    "phone": "+48166779500", "email": "sp6@um.przemysl.pl", "www": "https://sp6.przemysl.edu.pl",
+    "youtube_url": "", "panorama_url": "",
+    "gallery": [{ "url": "https://przemysl.skycms.com.pl/download/156869/…", "thumbUrl": "…", "thumbUrlMedium": "…" }],
+    "attachments": [],
+    "links": [{ "title": "Strona Internetowa Szkoły", "url": "https://sp6.przemysl.edu.pl", "link_type": "Oficjalna strona" }]
+  }
+}
+```
+
+## Mapping to reference fields
+
+| Reference field | From |
+|---|---|
+| `building_name` | `name` (the whole string, including "Defibrylator (AED 9579) w …") |
+| `address` | `street` + `home_number` |
+| `postal_code`, `city` | `postcode`, `city` |
+| `photo_url` | `gallery[0].url` |
+| `teryt` | constant from config |
+
+## Quirks
+
+- This is a **website's points-of-interest export**, not an AED register. It has no access, opening hours or device
+  fields.
+- **`description`** is generic text about what an AED is: only 3 different versions across 21 records, with no
+  device-specific content.
+- **The device number is only inside the name** ("AED 9579", sometimes "AED7639"). It isn't extracted to
+  `inventory_number` yet. AED 7639 appears twice, written both ways, so it may be a duplicate.
+- **Every record has a photo.**

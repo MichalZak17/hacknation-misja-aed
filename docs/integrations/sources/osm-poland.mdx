@@ -1,0 +1,97 @@
+---
+title: "osm-poland: OpenAEDMap / OpenStreetMap"
+nav: "osm-poland"
+slug: osm-poland
+connector: openaedmap
+code: backend/integrations/connectors/osm_poland/
+---
+# osm-poland: OpenAEDMap / OpenStreetMap
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Data URL | `https://openaedmap.org/api/v1/countries/PL.geojson` |
+| Publisher page | https://openstreetmap.org.pl/2022/mapa-defibrylatorow-aed-na-terenie-polski/ |
+| Format | GeoJSON FeatureCollection, `[lon, lat]`, about 7 MB |
+| Records | 18,297 (2026-11-21) |
+| Attribution | © OpenStreetMap contributors |
+| Connector / priority | `openaedmap` / 10, the lowest: other sources override it |
+| Record key | `@osm_type/@osm_id`, e.g. `node/10739764584` |
+| Links to other sources | The tag `ref:api-um-warszawa-pl` holds Warsaw's `defib_id` (113 nodes) |
+
+## Example record, as returned
+
+```json
+{
+  "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [16.1931868, 54.1730415] },
+  "properties": {
+    "@osm_id": 10739764584, "@osm_type": "node", "@osm_version": 3,
+    "emergency": "defibrillator",
+    "access": "yes", "indoor": "no", "level": "0", "wheelchair": "yes",
+    "opening_hours": "24/7",
+    "defibrillator:location": "Przed wejściem na cmentarz",
+    "defibrillator:location:pl": "Obok wejścia E na Cmentarz Komunalny (od ul. Kamieniarskiej). Punkt Życia #2",
+    "operator": "Biuro Bezpieczeństwa i Zarządzania Kryzysowego Urzędu Miejskiego w Koszalinie",
+    "manufacturer": "Philips", "model": "FRx",
+    "check_date": "2026-09-16",
+    "phone": "+48 94 34 71 112", "website": "https://punktyzycia.pl/",
+    "source": "Urząd Miejski w Koszalinie"
+  }
+}
+```
+
+The properties are free-form community tags: 138 different keys across the feed, and most records are sparse.
+
+| Tag | Filled |
+|---|---|
+| `access` | 92% |
+| `indoor` | 87% |
+| `defibrillator:location` | 67% |
+| `opening_hours` | 37% |
+| `operator` | 33% |
+| `check_date` | 33% |
+| `phone` | 24% |
+| `level` | 20% |
+| `manufacturer` | 2% |
+| `model` | 1% |
+
+## Mapping to reference fields
+
+| Reference field | From |
+|---|---|
+| `building_name` | `name` |
+| `location_detail` | `defibrillator:location:pl`, then `defibrillator:location`, then `location`, then `description` |
+| `address` | `addr:street` (or `addr:place`) + `addr:housenumber` |
+| `postal_code`, `city`, `simc` | `addr:postcode`, `addr:city`, `addr:city:simc` |
+| `indoor` | `indoor` (yes/no) |
+| `floor` | `level`, then `addr:floor`, then `floor` |
+| `access` | `access`: `yes`/`permissive` → public · `customers`/`permit` → limited · `private`/`no` → private |
+| `opening_hours` | `opening_hours`, only when it reads as OSM syntax (prose like "Całodobowo" is left to the LLM). The app shows it as Polish text: [godziny-dostepnosci.mdx](../../godziny-dostepnosci.mdx) |
+| `opening_hours_raw` | `opening_hours` as published |
+| `operator_name` | `operator` |
+| `manufacturer`, `model` | `manufacturer`, `model` |
+| `is_mobile` | `mobile=yes` |
+| `photo_url` | `image`, if it is an http(s) URL |
+| `verified_on` | `check_date` (full dates only; partial dates are flagged `check_date_not_a_full_date`) |
+
+Only ~5% of nodes have `addr:*` tags: the AED is a point inside a building, and the building's name and address are
+on another OSM object that OpenAEDMap does not send. Where no tag gives them, the merge fills `teryt` and, inside a
+town, `city` from the coordinates and the PRG boundaries (`devices/boundaries.py`,
+[gmina-i-miejscowosc.mdx](../../gmina-i-miejscowosc.mdx)). Street, house number and postal code are never derived.
+
+## Free text read by the LLM
+
+Most of what a rescuer needs is in `defibrillator:location[:pl|:en]`, `description`, `note` and `fixme`. The connector
+sends those tags, plus `opening_hours`, `level`, `indoor` and `access`, to the local LLM (`text_input()`), and the
+answer fills `placement`, `is_mobile`, `indoor`, `floor`, `opening_hours`, `access_conditions` and `seasonal` where no
+tag states them. About 2,160 nodes describe AEDs carried in fire engines, which only 2 tag `mobile=yes`. Details and
+accuracy: [docs/llm-extraction/report.mdx](../../llm-extraction/report.mdx).
+
+## Quirks
+
+- **`check_date`** is when a mapper last checked the device on the map, not a service inspection. It doesn't affect
+  readiness.
+- **No maintenance data:** no source tag holds pads, battery or inspection dates.
+- **`access` values:** `yes` 7,806 · `customers` 4,683 · `private` 3,045 · none 1,380 · `permit` 1,198 ·
+  `permissive` 132 · `no` 47 · `unknown` 6.

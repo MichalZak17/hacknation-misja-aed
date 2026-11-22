@@ -1,0 +1,62 @@
+NORMY I STANDARDY - ZADANIE 01 "MISJA AED - DANE NA RATUNEK"
+HackNation 2026, stan na 21.11.2026
+
+UWAGA: Z tego, co mamy o zadaniu 01, brief nie wymaga zadnej konkretnej normy ISO.
+Wymaga zgodnosci z dane.gov.pl, pliku xlsx oraz logo z ksiega znaku.
+Ponizsze normy to rekomendacja, ktora podnosi wiarygodnosc na pitchu.
+Nie trzeba sie z nich certyfikowac - wystarczy pokazac, ze na nich sie opieracie.
+
+1. DANE I OTWARTE DANE (najwazniejsze dla oceny)
+- DCAT-AP PL 2.1 - metadane zbioru na dane.gov.pl
+- Ustawa o otwartych danych (2021) i rozporzadzenie KRI - formaty i interoperacyjnosc w administracji
+- ISO 8601 - zapis dat (np. 2026-11-21T15:00:00+01:00), kluczowy dla dat waznosci
+- ISO 19115 - metadane geograficzne
+- WGS84 / EPSG:4326 - uklad wspolrzednych (w Polsce ewentualnie tez EPSG:2180, PL-1992)
+- Dyrektywa INSPIRE - dane przestrzenne w administracji
+- ISO/IEC 25012 - model jakosci danych (kompletnosc, aktualnosc, dokladnosc); pasuje do polityki swiezosci
+- Adresy: TERYT i PRG (punkty adresowe) z GUGiK
+
+2. AED (DZIEDZINA)
+- ISO 7010 E010 - miedzynarodowy znak AED (zielony z sercem i blyskawica); trzymac sie go w logo kampanii
+- ILCOR / ERC - wspolny znak AED i wytyczne resuscytacji (ERC 2021, aktualizacja 2025)
+- EN/IEC 60601-2-4 - norma bezpieczenstwa defibrylatorow; tylko jako zrodlo pol (np. model, zakres temperatur), nie wymog dla zespolu
+- MDR (UE) 2017/745 i polska ustawa o wyrobach medycznych - daty waznosci i serwis wedlug producenta
+
+3. APLIKACJA
+- WCAG 2.1 AA (EN 301 549) - w Polsce wymagane dla administracji ustawa o dostepnosci cyfrowej
+- RODO - dane opiekuna AED (imie, telefon) to dane osobowe; nie publikowac ich w otwartym zbiorze
+- ISO/IEC 27001 - bezpieczenstwo informacji; tylko jako wzmianka "architektura gotowa pod 27001"
+- Podpis paczek danych: RFC 8032 (Ed25519) / RFC 7515 (JWS); docelowo eIDAS dla pieczeci instytucji
+
+4. DO ZAPYTANIA MENTORA
+- Czy ministerstwo oczekuje ktoregos z tych standardow wprost, zwlaszcza DCAT-AP PL, WCAG i znaku ISO 7010?
+
+5. DOSTEPNOSC DLA OSOB Z NIEPELNOSPRAWNOSCIAMI
+Przepisy i normy:
+- Ustawa o dostepnosci cyfrowej stron i aplikacji podmiotow publicznych (2019) - wymaga WCAG 2.1 AA
+- WCAG 2.1 AA (docelowo warto 2.2) i EN 301 549 - norma europejska dostepnosci ICT
+- Ustawa o zapewnianiu dostepnosci osobom ze szczegolnymi potrzebami (2019) - dostepnosc architektoniczna, cyfrowa i informacyjno-komunikacyjna
+- European Accessibility Act (dyrektywa 2019/882, w PL ustawa o dostepnosci produktow i uslug, od 28.06.2025)
+- ISO 21542 - dostepnosc srodowiska zbudowanego (wysokosc elementow obslugi, dojscie)
+- Tekst latwy do czytania (ETR) i pictogramy wg ISO 7010
+
+Aplikacja / mapa:
+- Pelna obsluga czytnikiem ekranu (TalkBack, VoiceOver), nawigacja klawiatura, etykiety przyciskow
+- Kontrast min. 4,5:1; statusy AED nie tylko kolorem (ikona + tekst) - waznie dla daltonistow
+- Duze pola dotyku (min. 44x44 px), skalowanie tekstu do 200%
+- Lista "najblizsze AED" jako alternatywa dla mapy (mapa jest trudna dla czytnika ekranu)
+- Nawigacja glosowa / opis drogi tekstem ("wejscie od ul. X, szafka na prawo od drzwi")
+- Wersja w tekscie latwym do czytania i w polskim jezyku migowym (PJM) dla instrukcji uzycia AED
+- Osoby gluche nie zadzwonia glosowo na 112: link do aplikacji Alarm112 (zgloszenie tekstem) zamiast samego przycisku "zadzwon"
+
+Nowe pola w schemacie danych AED:
+- dostep_bez_barier (tak/nie) - dojscie bez schodow
+- wysokosc_szafki_cm - czy osoba na wozku siegnie (zalecane ok. 80-120 cm, do potwierdzenia z norma)
+- winda_podjazd (tak/nie/nie dotyczy)
+- szafka_zamknieta_kod (tak/nie) i sposob otwarcia - kod bywa barierą
+- komunikaty_glosowe_PL (tak/nie) i ekran/wskazowki wizualne (dla osob niedoslyszacych)
+- opis_dojscia_tekst - opis dla osoby niewidomej lub nieznajacej okolicy
+- oznakowanie_ISO7010 (tak/nie) i oznakowanie dotykowe/Braille (tak/nie)
+
+Do zapytania mentora:
+- Czy ocena obejmuje WCAG 2.1 AA aplikacji i czy chca pol o dostepnosci architektonicznej AED w schemacie?

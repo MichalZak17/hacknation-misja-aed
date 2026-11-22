@@ -1,0 +1,2219 @@
+{
+ "label": "qwen3.5-9b",
+ "config": {
+  "model": "bench",
+  "prompt": "fewshot",
+  "evidence": true,
+  "batch": 1,
+  "concurrency": 64
+ },
+ "perf": {
+  "wall_s": 12.8,
+  "records_per_s": 9.35,
+  "avg_request_latency_s": 5.81,
+  "prompt_tokens_per_record": 1500.6,
+  "completion_tokens_per_record": 113.0,
+  "failed_records": 0,
+  "errors": []
+ },
+ "n": 120,
+ "score": {
+  "fields": {
+   "placement": {
+    "ok": 120,
+    "n": 120,
+    "invented": 0,
+    "missed": 0
+   },
+   "floor": {
+    "ok": 120,
+    "n": 120,
+    "invented": 0,
+    "missed": 0
+   },
+   "opening_hours": {
+    "ok": 110,
+    "n": 120,
+    "invented": 0,
+    "missed": 1
+   },
+   "access_conditions": {
+    "ok": 108,
+    "n": 120,
+    "invented": 0,
+    "missed": 10
+   },
+   "seasonal": {
+    "ok": 120,
+    "n": 120,
+    "invented": 0,
+    "missed": 0
+   },
+   "device_count": {
+    "ok": 120,
+    "n": 120,
+    "invented": 0,
+    "missed": 0
+   },
+   "enclosure": {
+    "ok": 120,
+    "n": 120,
+    "invented": 0,
+    "missed": 0
+   }
+  },
+  "record_exact": 99,
+  "n": 120
+ },
+ "predictions": [
+  {
+   "id": "node/10311570105",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "key_holder"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "świetlica wiejska",
+    "evidence": [
+     "AED zamontowane w świetlicy wiejskiej",
+     "Klucz do budynku znajduje się u sołtysa wsi"
+    ]
+   }
+  },
+  {
+   "id": "node/13112211901",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 2,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na klatce schodowej",
+    "evidence": [
+     "2 piętro",
+     "level=2",
+     "na klatce schodowej"
+    ]
+   }
+  },
+  {
+   "id": "node/14006776317",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie remizy",
+    "evidence": [
+     "Na ścianie remizy",
+     "24/7",
+     "okrągłej kasecie Rotaid"
+    ]
+   }
+  },
+  {
+   "id": "node/14124833301",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:30-15:30",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wejście główne, obok portierni",
+    "evidence": [
+     "Wejście główne",
+     "parter",
+     "Godz. pracy: 7:30-15:30",
+     "level",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/10138292805",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia przy wejściu głównym",
+    "evidence": [
+     "Portiernia przy wejściu głównym",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/12211094547",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie remizy, obok bramy garażowej",
+    "evidence": [
+     "Na ścianie remizy",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/14399037701",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na elewacji świetlicy wiejskiej",
+    "evidence": [
+     "Na elewacji świetlicy wiejskiej",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13621173240",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie przy wejściu",
+    "evidence": [
+     "w czarnej kapsule na ścianie",
+     "24/7",
+     "na ścianie przy wejściu"
+    ]
+   }
+  },
+  {
+   "id": "node/14352569601",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [
+     "call_phone"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "cabinet",
+    "position_hint": "na wprost wejścia",
+    "evidence": [
+     "w białej skrzynce",
+     "a jeśli drzwi zamówienie zadzwonić do ochrony domofonem",
+     "24/7",
+     "na wprost wejścia"
+    ]
+   }
+  },
+  {
+   "id": "node/13935355803",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "mieszkanie wspomagane nr 2",
+    "evidence": [
+     "Mieszkanie wspomagane nr 2",
+     "parter",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13681830401",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w narożniku ścian strona północno - zachodnia",
+    "evidence": [
+     "Na ścianie zewnętrznej budynku",
+     "w narożniku ścian strona północno - zachodnia"
+    ]
+   }
+  },
+  {
+   "id": "node/12551739501",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w kabinie samochodu strażackiego",
+    "evidence": [
+     "w kabinie samochodu strażackiego"
+    ]
+   }
+  },
+  {
+   "id": "node/3694021962",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 09:00-22:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wejściu do sklepu Auchan od strony zachodniej",
+    "evidence": [
+     "Wewnątrz budynku",
+     "na parterze",
+     "Mo-Sa 08:00-22:00; Su 09:00-22:00",
+     "wejściu do sklepu Auchan od strony zachodniej"
+    ]
+   }
+  },
+  {
+   "id": "node/9687749660",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie holu obsługi interesanta",
+    "evidence": [
+     "Zainstalowane Wewnątrz Budynku",
+     "Na Ścianie Holu Obsługi Interesanta"
+    ]
+   }
+  },
+  {
+   "id": "node/10289795209",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "Mo-Tu 09:00-18:00; We-Fr 09:00-17:00; Sa 09:00-13:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu",
+    "evidence": [
+     "Na ścianie przy wejściu",
+     "W soboty - otwarte tylko w pierwszą i ostatnią sobotę miesiąca",
+     "Mo-Tu 09:00-18:00; We-Fr 09:00-17:00; Sa 09:00-13:00",
+     "indoor"
+    ]
+   }
+  },
+  {
+   "id": "node/12685607756",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 1,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "korytarz na 1 piętrze",
+    "evidence": [
+     "Korytarz na 1 piętrze",
+     "level",
+     "1"
+    ]
+   }
+  },
+  {
+   "id": "node/10086980529",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na lewo od wejścia na lodowisko",
+    "evidence": [
+     "Na lewo od wejścia na lodowisko Toropol.",
+     "W zielonej, podświetlanej kapsule Rotaaid.",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13704596206",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 06:00-22:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy pokoju socjalnym pracowników, w segmencie A budynku, wejście do obiektu od strony stadionu miejskiego",
+    "evidence": [
+     "wewnątrz budynku",
+     "na parterze",
+     "przy pokoju socjalnym pracowników",
+     "Mo-Fr 06:00-22:00"
+    ]
+   }
+  },
+  {
+   "id": "node/9347486797",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie remizy od strony ulicy 3 maja",
+    "evidence": [
+     "Na ścianie remizy od strony ulicy 3 maja",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13929541102",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie frontowej remizy",
+    "evidence": [
+     "na ścianie frontowej remizy",
+     "indoor: no"
+    ]
+   }
+  },
+  {
+   "id": "node/13071622034",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "07:00-21:30",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy szatni",
+    "evidence": [
+     "Parter",
+     "0",
+     "przy szatni",
+     "7-21:30"
+    ]
+   }
+  },
+  {
+   "id": "node/12076105559",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na korytarzu",
+    "evidence": [
+     "na korytarzu",
+     "level=0",
+     "indoor=yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13526184301",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia",
+    "evidence": [
+     "Portiernia",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/12598736749",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:00-16:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na parterze budynku Starostwa",
+    "evidence": [
+     "na parterze budynku Starostwa",
+     "Mo-Fr 07:00-16:00",
+     "level",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/13338145801",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu, w wewnętrznej klatce schodowej",
+    "evidence": [
+     "Przy wejściu do banku, w wewnętrznej klatce schodowej",
+     "indoor: yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13371178901",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "06:00-15:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "z prawej strony na przeciwko schodów",
+    "evidence": [
+     "Z prawej strony na przeciwko schodów",
+     "Dostępny od 6.00 do 15.00",
+     "level",
+     "0",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13451264069",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie frontowej budynku",
+    "evidence": [
+     "w czarnej kapsule na ścianie frontowej budynku",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/14128005001",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 08:00-16:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wejście główne, na korytarzu głównym",
+    "evidence": [
+     "Wejście główne",
+     "parter",
+     "na korytarzu głównym",
+     "Godz. 8:00-16:00",
+     "level=0"
+    ]
+   }
+  },
+  {
+   "id": "node/9654454294",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo,We,Th 07:30-15:30; Tu 07:30-17:00; Fr 07:00-13:30; Sa,Su off; PH off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na wprost wejścia głównego, na ścianie po lewej stronie",
+    "evidence": [
+     "Parter budynku",
+     "na ścianie",
+     "indoor: yes",
+     "level: 0",
+     "Mo,We,Th 07:30-15:30; Tu 07:30-17:00; Fr 07:00-13:30; Sa,Su off; PH off",
+     "na wprost wejścia głównego, na ścianie po lewej stronie"
+    ]
+   }
+  },
+  {
+   "id": "node/13287576627",
+   "pred": {
+    "placement": "freestanding_outdoor",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy figurce czarownicy",
+    "evidence": [
+     "na zewnątrz budynku szkoły, przy figurce czarownicy",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/9894070017",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "pomieszczenie 9C",
+    "evidence": [
+     "Parter",
+     "pomieszczenie 9C"
+    ]
+   }
+  },
+  {
+   "id": "node/14299703801",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "po lewej stronie przy wejściu na świetlicę wiejską",
+    "evidence": [
+     "kapsuła zewnętrzna",
+     "24/7",
+     "po lewej stronie przy wejściu na świetlicę wiejską"
+    ]
+   }
+  },
+  {
+   "id": "node/12688810303",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy pomieszczeniu portierni",
+    "evidence": [
+     "wewnątrz budynku",
+     "przy pomieszczeniu portierni"
+    ]
+   }
+  },
+  {
+   "id": "node/12685859619",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:30-15:30",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wyjściu ewakuacyjnym",
+    "evidence": [
+     "na parterze",
+     "0",
+     "przy wyjściu ewakuacyjnym",
+     "Mo-Fr 07:30-15:30"
+    ]
+   }
+  },
+  {
+   "id": "node/13722071411",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "ask_staff_or_security"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "budynek ochrony",
+    "evidence": [
+     "Budynek ochrony",
+     "Pod nadzorem ochrony"
+    ]
+   }
+  },
+  {
+   "id": "node/10745406739",
+   "pred": {
+    "placement": "freestanding_outdoor",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "przy chodniku, w sąsiedztwie przystanku Politechnika 02",
+    "evidence": [
+     "Wolnostojące AED",
+     "zielonej, podświatlanej kapsule",
+     "24/7",
+     "przy chodniku",
+     "w sąsiedztwie przystanku Politechnika 02"
+    ]
+   }
+  },
+  {
+   "id": "node/13020305005",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Sep-Jun 06:00-21:00; Jul-Aug 07:00-16:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w portierni, główne wejście",
+    "evidence": [
+     "W portierni",
+     "główne wejście",
+     "Sep-Jun 06:00-21:00; Jul-Aug 07:00-16:00",
+     "level=0",
+     "indoor=yes"
+    ]
+   }
+  },
+  {
+   "id": "node/9428790517",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "W samochodzie OSP Rzeszów - Matysówka",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13412748201",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "siren_or_alarm_button"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "Na wyposażeniu wozu strażackiego",
+     "włączyć syrenę alarmową"
+    ]
+   }
+  },
+  {
+   "id": "node/13387677216",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "przy wejściu głównym",
+    "evidence": [
+     "w kapsule na ścianie",
+     "24/7",
+     "przy wejściu głównym"
+    ]
+   }
+  },
+  {
+   "id": "node/13722332023",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "parter, obok kantorka ochrony",
+    "evidence": [
+     "Budynek admin. parter",
+     "parter"
+    ]
+   }
+  },
+  {
+   "id": "node/13624188120",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "Mo-Fr 06:00-19:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w holu głównym, w bezpośrednim sąsiedztwie portierni/wejścia głównego",
+    "evidence": [
+     "w holu głównym",
+     "Mo-Fr 06:00-19:00"
+    ]
+   }
+  },
+  {
+   "id": "node/9907852202",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy bramkach wejściowych",
+    "evidence": [
+     "Na ścianie zewnętrznej budynku",
+     "24/7",
+     "przy bramkach wejściowych"
+    ]
+   }
+  },
+  {
+   "id": "node/13527211057",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie Warsztatów Terapii Zajęciowej",
+    "evidence": [
+     "w pomarańczowo-zielonej kapsule na ścianie Warsztatów Terapii Zajęciowej",
+     "indoor: no"
+    ]
+   }
+  },
+  {
+   "id": "node/14384491601",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "only_during_opening_hours"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie po prawej stronie od wyjścia na boisko sklepowe",
+    "evidence": [
+     "Wewnątrz sklepu",
+     "na ścianie po prawej stronie od wyjścia na boisko sklepowe",
+     "W godzinach pracy sklepu"
+    ]
+   }
+  },
+  {
+   "id": "node/13985874101",
+   "pred": {
+    "placement": "unknown",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": []
+   }
+  },
+  {
+   "id": "node/10298356109",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia",
+    "evidence": [
+     "Portiernia",
+     "parterze",
+     "czynne całodobowo"
+    ]
+   }
+  },
+  {
+   "id": "node/13639148651",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie szkoły, obok wejścia",
+    "evidence": [
+     "w kapsule na ścianie szkoły",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/14068534701",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "remiza osp/ ośrodek zdrowia",
+    "evidence": [
+     "Remiza OSP/ Ośrodek zdrowia",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13935355805",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w pomieszczeniach MZON",
+    "evidence": [
+     "w pomieszczeniach MZON",
+     "parter",
+     "Codziennie od 6.00 do 15.30",
+     "W większość dni roboczych AED jest dostępny aż do 18.00-19.00",
+     "dostępny także w dwie wybrane soboty miesiąca w godzinach 8.00-16.00"
+    ]
+   }
+  },
+  {
+   "id": "node/13526729730",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w strefie z bankomatem",
+    "evidence": [
+     "wewnątrz budynku banku",
+     "24/7",
+     "w całodobowej strefie z bankomatem"
+    ]
+   }
+  },
+  {
+   "id": "node/14233669701",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz",
+    "evidence": [
+     "wewnątrz"
+    ]
+   }
+  },
+  {
+   "id": "node/12615887439",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia",
+    "evidence": [
+     "portiernia",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/13618753801",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 1,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "1 piętrze",
+    "evidence": [
+     "W budynku szkoły na 1 piętrze",
+     "1 piętrze"
+    ]
+   }
+  },
+  {
+   "id": "node/13804373206",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 1,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz",
+    "evidence": [
+     "wewnątrz",
+     "level=1"
+    ]
+   }
+  },
+  {
+   "id": "node/14125549205",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie zewnętrznej budynku zaplecza basenu",
+    "evidence": [
+     "Na ścianie zewnętrznej budynku zaplecza basenu dla dzieci Funky Monkey.",
+     "level: 0"
+    ]
+   }
+  },
+  {
+   "id": "node/14159439301",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu",
+    "evidence": [
+     "na zewnętrznej ścianie budynku remizy",
+     "przy wejściu"
+    ]
+   }
+  },
+  {
+   "id": "node/9430713618",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia",
+    "evidence": [
+     "Portiernia"
+    ]
+   }
+  },
+  {
+   "id": "node/12228365441",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy głównym wejściu od strony ul. Bohaterów Westerplatte",
+    "evidence": [
+     "Na zewnątrz budynku",
+     "przy głównym wejściu od strony ul. Bohaterów Westerplatte"
+    ]
+   }
+  },
+  {
+   "id": "node/10655344889",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "Mo-Fr 08:00-16:00",
+    "access_conditions": [
+     "ask_staff_or_security"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "portiernia główna",
+    "evidence": [
+     "w portierni glównej budynku",
+     "Mo-Fr 08:00-16:00"
+    ]
+   }
+  },
+  {
+   "id": "node/9514529753",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [
+     "siren_or_alarm_button"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na ścianie na zewnątrz remizy",
+    "evidence": [
+     "Na ścianie na zewnątrz remizy",
+     "w specjalnej kapsule",
+     "uruchamia syrenę alarmową",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/14231494801",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz",
+    "evidence": [
+     "wewnątrz"
+    ]
+   }
+  },
+  {
+   "id": "node/13656934301",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie zabytkowej remizy",
+    "evidence": [
+     "Na ścianie zabytkowej remizy",
+     "indoor: no"
+    ]
+   }
+  },
+  {
+   "id": "node/13739923997",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": []
+   }
+  },
+  {
+   "id": "node/10766939047",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 08:00-16:00; Sa,Su off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "cabinet",
+    "position_hint": "na ścianie po lewej stronie od wejścia głównego do budynku (obok portierni)",
+    "evidence": [
+     "w gablocie",
+     "na ścianie po lewej stronie od wejścia głównego do budynku (obok portierni)",
+     "Mo-Fr 08:00-16:00; Sa,Su off",
+     "level",
+     "0",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13815816893",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "cabinet",
+    "position_hint": "na ścianie remizy",
+    "evidence": [
+     "w zielonej skrzynce na ścianie remizy",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/12301269901",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "fasada remizy",
+    "evidence": [
+     "Fasada remizy",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/10543644709",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "W wozie strażackim",
+     "In firetruck"
+    ]
+   }
+  },
+  {
+   "id": "node/13717959302",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 1,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "jadalnia pracownicza",
+    "evidence": [
+     "Jadalnia pracownicza",
+     "level",
+     "1",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13736839201",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 06:00-20:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu, obok portierni",
+    "evidence": [
+     "wewnątrz szkoły",
+     "level=0",
+     "indoor=yes",
+     "Mo-Fr 06:00-20:00; Sa-Su, PH off"
+    ]
+   }
+  },
+  {
+   "id": "node/14344404001",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "sala obsługi",
+    "evidence": [
+     "sala obsługi",
+     "parterze"
+    ]
+   }
+  },
+  {
+   "id": "node/12597093425",
+   "pred": {
+    "placement": "freestanding_outdoor",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na słupie przy wejściu głównym od strony ochrony",
+    "evidence": [
+     "na słupie przy wejściu głównym od strony ochrony"
+    ]
+   }
+  },
+  {
+   "id": "node/13539006028",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "pomieszczenie dyżurnych bezpośrednio przy wejściu",
+    "evidence": [
+     "Parter",
+     "24/7",
+     "pomieszczenie dyżurnych bezpośrednio przy wejściu"
+    ]
+   }
+  },
+  {
+   "id": "node/12993995401",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "pomieszczenie ochrony",
+    "evidence": [
+     "Pomieszczenie ochrony budynku",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/14354121601",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na elewacji budynku remizy",
+    "evidence": [
+     "Na elewacji budynku remizy"
+    ]
+   }
+  },
+  {
+   "id": "node/13999924402",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 2,
+    "opening_hours": "Mo-Fr 08:00-15:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "indoor: yes",
+     "level: 2",
+     "poniedziałek-piątek",
+     "8:00 - 15:00"
+    ]
+   }
+  },
+  {
+   "id": "node/13803610447",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo 08:00-18:00; Tu-Fr 08:00-15:00; Sa-Su, PH off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "niedaleko od wejścia do budynku",
+    "evidence": [
+     "wewnątrz budynku",
+     "na parterze",
+     "Mo 08:00-18:00; Tu-Fr 08:00-15:00; Sa-Su, PH off"
+    ]
+   }
+  },
+  {
+   "id": "node/13536544601",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Su 06:00-20:00",
+    "access_conditions": [
+     "only_during_opening_hours"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "domofon od ul. Klasztornej 2",
+    "evidence": [
+     "Od godz. 6:00 do godz. 20:00",
+     "level",
+     "0",
+     "domofon od ul. Klasztornej 2"
+    ]
+   }
+  },
+  {
+   "id": "node/13668863312",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na budynku szkoły",
+    "evidence": [
+     "w czarnej kapsule na budynku szkoły",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/12028943969",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:15-15:15",
+    "access_conditions": [
+     "only_during_opening_hours"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "parter na korytarzu za bramką kontrolną",
+    "evidence": [
+     "w budynku",
+     "parter",
+     "W godzinach pracy Sądu Rejonowego, w dni robocze od poniedziałku do piątku 7:15 - 15:15"
+    ]
+   }
+  },
+  {
+   "id": "node/12703892086",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:30-15:30",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu głównym",
+    "evidence": [
+     "na parterze budynku",
+     "wejściu głównym",
+     "Mo-Fr 07:30-15:30",
+     "parterze",
+     "level=0"
+    ]
+   }
+  },
+  {
+   "id": "node/12628457289",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo 07:00-17:00; Tu-Fr 07:00-15:00; Sa-Su, PH off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w punkcie „Informacji ogólnej”",
+    "evidence": [
+     "na parterze budynku C",
+     "w holu budynku",
+     "level=0",
+     "indoor=yes",
+     "w punkcie „Informacji ogólnej”"
+    ]
+   }
+  },
+  {
+   "id": "node/9327005650",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz biura TME na piętrze, biura po lewej stronie",
+    "evidence": [
+     "wwewnętrz biura TME na piętrze, biura po lewej stronie"
+    ]
+   }
+  },
+  {
+   "id": "node/9445486286",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz Komisariatu Policji",
+    "evidence": [
+     "wewnątrz Komisariatu Policji",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/10942907840",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "ask_staff_or_security"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "u ochroniarza",
+    "evidence": [
+     "U ochroniarza",
+     "indoor: yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13722071417",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [
+     "ask_staff_or_security"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "hala napraw tramwajów",
+    "evidence": [
+     "hala napraw tramwajów",
+     "Pod nadzorem ochrony"
+    ]
+   }
+  },
+  {
+   "id": "node/14231485901",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "wewnątrz",
+    "evidence": [
+     "wewnątrz"
+    ]
+   }
+  },
+  {
+   "id": "node/13919893601",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "remiza osp dzianisz dolny",
+    "evidence": [
+     "Remiza OSP Dzianisz Dolny",
+     "indoor: no"
+    ]
+   }
+  },
+  {
+   "id": "node/13381305169",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [
+     "only_during_opening_hours"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "AED dostępne w godzinach pracy",
+     "level",
+     "0",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/11981437602",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "w głównym holu, obok kawiarni Costa Coffe oraz sklepu Monnari",
+    "evidence": [
+     "Na parterze",
+     "level",
+     "0",
+     "w głównym holu"
+    ]
+   }
+  },
+  {
+   "id": "node/12620947204",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo,We,Fr 07:30-19:00;Tu,Th 07:30-21:00;Sa-Su off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "cabinet",
+    "position_hint": "na ścianie po prawej stronie, na przeciwko schodów wejściowych na I piętro, około 10 m od drzwi wejściowych",
+    "evidence": [
+     "W szafce",
+     "na parterze",
+     "na ścianie po prawej stronie",
+     "Mo, We, Fr 07:30-19:00; Tu, Th 07:30-21:00; Sa-Su off",
+     "level=0",
+     "indoor=yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13857714222",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "capsule",
+    "position_hint": "na elewacji budynku",
+    "evidence": [
+     "kapsuła zewnętrzna na elewacji budynku",
+     "24/7"
+    ]
+   }
+  },
+  {
+   "id": "node/13730623430",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 3,
+    "opening_hours": "Mo-Fr 08:00-15:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "korytarz III piętro, przy pokoju nr 302",
+    "evidence": [
+     "wewnątrz budynku",
+     "korytarz III piętro",
+     "Mo-Fr 08:00-15:00",
+     "level=3",
+     "indoor=yes"
+    ]
+   }
+  },
+  {
+   "id": "node/14109692701",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "AED znajduje się w wozie strażackim"
+    ]
+   }
+  },
+  {
+   "id": "node/13983117941",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "w samochodzie GBA Scania"
+    ]
+   }
+  },
+  {
+   "id": "node/14383740301",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie między bramami wjazdowymi",
+    "evidence": [
+     "Na ścianie między bramami wjazdowymi",
+     "indoor: no"
+    ]
+   }
+  },
+  {
+   "id": "node/12624583436",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "korytarz przy sekretariacie",
+    "evidence": [
+     "Korytarz przy sekretariacie",
+     "indoor: yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13339480677",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "obok wejścia głównego",
+    "evidence": [
+     "w budynku",
+     "obok wejścia głównego"
+    ]
+   }
+  },
+  {
+   "id": "node/13709907897",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 1,
+    "opening_hours": "Mo-Fr 07:00-17:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "korytarz przy gabinecie kierownika i pielęgniarki",
+    "evidence": [
+     "korytarz przy gabinecie kierownika i pielęgniarki",
+     "Mo-Fr 07:00-17:00",
+     "1"
+    ]
+   }
+  },
+  {
+   "id": "node/9421625817",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "recepcja",
+    "evidence": [
+     "AED na Recepcji",
+     "indoor"
+    ]
+   }
+  },
+  {
+   "id": "node/11681244470",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": []
+   }
+  },
+  {
+   "id": "node/12016586374",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [
+     "only_during_opening_hours"
+    ],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie naprzeciwko kas przy głównym wejściu",
+    "evidence": [
+     "W sklepie OBI",
+     "na ścianie",
+     "indoor: yes",
+     "level: 0",
+     "Dostępny tylko w godzinach pracy sklepu"
+    ]
+   }
+  },
+  {
+   "id": "node/12676142801",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "dyspozytor",
+    "evidence": [
+     "Dyspozytor Dworca Morskiego",
+     "indoor: yes"
+    ]
+   }
+  },
+  {
+   "id": "node/9560433577",
+   "pred": {
+    "placement": "vehicle",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": [
+     "Samochód ratowniczo-gaśniczy OSP Mirzec"
+    ]
+   }
+  },
+  {
+   "id": "node/12626433130",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": "Mo 08:00-17:00; Tu-Fr 08:00-15:00; Sa-Su, PH off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu głównym",
+    "evidence": [
+     "przy wejściu głównym",
+     "Mo 08:00-17:00; Tu-Fr 08:00-15:00; Sa-Su, PH off"
+    ]
+   }
+  },
+  {
+   "id": "node/13778923901",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "filar naprzeciwko punktu informacji",
+    "evidence": [
+     "Filar naprzeciwko punktu informacji",
+     "level",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/13923380115",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu po prawej stronie patrząc od ulicy",
+    "evidence": [
+     "Przy wejściu po prawej stronie patrząc od ulicy",
+     "0",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/14290509410",
+   "pred": {
+    "placement": "freestanding_outdoor",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na przeciwko ławki",
+    "evidence": [
+     "na przeciwko ławki",
+     "indoor=no"
+    ]
+   }
+  },
+  {
+   "id": "node/13120798701",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:00-22:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu głównym",
+    "evidence": [
+     "Przy wejściu głównym",
+     "Mo-Fr 07:00-22:00",
+     "level",
+     "0",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/11270441669",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu do budynku",
+    "evidence": [
+     "Przy wejściu do budynku",
+     "indoor=no"
+    ]
+   }
+  },
+  {
+   "id": "node/12650513045",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "24/7",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy wejściu od strony wschodniej",
+    "evidence": [
+     "wewnątrz budynku",
+     "wejściu od strony wschodniej",
+     "24/7",
+     "level=0"
+    ]
+   }
+  },
+  {
+   "id": "node/10308584709",
+   "pred": {
+    "placement": "inside_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie, naprzeciw wejścia głównego",
+    "evidence": [
+     "w biurowcu - na ścianie",
+     "naprzeciw wejścia głównego"
+    ]
+   }
+  },
+  {
+   "id": "node/12615596945",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo-Fr 07:00-15:00",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "kancelaria kierownika",
+    "evidence": [
+     "kancelaria kierownika",
+     "level=0",
+     "Mo-Fr 07:00-15:00"
+    ]
+   }
+  },
+  {
+   "id": "node/13985846804",
+   "pred": {
+    "placement": "unknown",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": null,
+    "evidence": []
+   }
+  },
+  {
+   "id": "node/12822548905",
+   "pred": {
+    "placement": "unknown",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na węźle przesiadkowym Plac Rapackiego",
+    "evidence": [
+     "na węźle przesiadkowym Plac Rapackiego"
+    ]
+   }
+  },
+  {
+   "id": "node/9472538128",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "po lewej stronie na ścianie zaraz za przedsionkiem (wejście A)",
+    "evidence": [
+     "po lewej stronie na ścianie zaraz za przedsionkiem (wejście A)",
+     "level",
+     "0",
+     "indoor",
+     "yes"
+    ]
+   }
+  },
+  {
+   "id": "node/13673183791",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": "Mo 07:30-18:00; Tu-Fr 07:30-15:30; Sa-Su, PH off",
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy pomieszczeniu nr 5",
+    "evidence": [
+     "na parterze",
+     "wewnątrz budynku",
+     "Mo 07:30-18:00; Tu-Fr 07:30-15:30; Sa-Su, PH off",
+     "przy pomieszczeniu nr 5"
+    ]
+   }
+  },
+  {
+   "id": "node/11375609969",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "przy bramkach wyjściowych",
+    "evidence": [
+     "Przy bramkach wyjściowych",
+     "0"
+    ]
+   }
+  },
+  {
+   "id": "node/13036797001",
+   "pred": {
+    "placement": "inside_building",
+    "floor": 0,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "na ścianie po lewej stronie",
+    "evidence": [
+     "Środkowy budynek",
+     "indoor: yes",
+     "level: 0",
+     "na ścianie po lewej stronie"
+    ]
+   }
+  },
+  {
+   "id": "node/12458950801",
+   "pred": {
+    "placement": "outside_on_building",
+    "floor": null,
+    "opening_hours": null,
+    "access_conditions": [],
+    "seasonal": false,
+    "device_count": null,
+    "enclosure": "unknown",
+    "position_hint": "z lewej strony od wejścia głównego na ścianie dobudówki przy szarym łaczniku",
+    "evidence": [
+     "z lewej strony od wejścia głównego na ścianie dobudówki przy szarym łaczniku",
+     "indoor: no"
+    ]
+   }
+  }
+ ]
+}

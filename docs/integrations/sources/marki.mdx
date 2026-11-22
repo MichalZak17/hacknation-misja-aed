@@ -1,0 +1,42 @@
+---
+title: "marki: Marki (CSV wrapped in CSV)"
+nav: "marki"
+slug: marki
+connector: marki_csv
+code: backend/integrations/connectors/marki/
+---
+# marki: Marki (CSV wrapped in CSV)
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Data URL | `https://api.dane.gov.pl/media/resources/20250710/Defibrylator_GminaMiastoMarki_1.csv` |
+| Catalogue | https://api.dane.gov.pl/1.4/datasets/4955 |
+| Format | CSV in which every line is one quoted field holding the real CSV line; CRLF line endings |
+| Records | 8, of which 1 is rejected (2026-11-21) |
+| Attribution | Gmina Miasto Marki |
+| Connector / priority | `marki_csv` / 50 (a subclass of the Krosno connector) |
+| Record key | `Numer Id` |
+| Config | `bounds: [52.30, 21.04, 52.37, 21.17]` (no TERYT) |
+
+## Example record, as returned
+
+```csv
+"Długość geograficzna,Szerokość geograficzna, Nazwa, Lokalizacja, Adres, Numer Id"
+"52.326697, 21.107557,""Defibrylator"",""Urząd Miasta Marki "",""Al.. Piłsudskiego 95, 05-270 Marki"",""1"""
+```
+
+## Mapping to reference fields
+
+Same as [Krosno](./krosno.mdx), after unwrapping the outer CSV.
+
+## Quirks
+
+- **Every line is wrapped in quotes,** including the header, with the inner quotes doubled. The connector unwraps it
+  before parsing.
+- **Coordinates are swapped:** the header says longitude first, but the values are latitude first. Validation swaps
+  them back and flags `coordinates_swapped`.
+- **Row 7 is a copy-paste error:** it holds Krosno's coordinates (`21.7203…, 49.7188…`) from the template. It is
+  rejected as `outside_municipality`.
+- **Rows 5 and 6 share coordinates** (`shared_coordinates`). Names have trailing spaces, and there are typos such as
+  "Al..".

@@ -1,0 +1,53 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Backend runtime data (snapshots, uploads, exports) and Celery beat state
+backend/var/
+backend/celerybeat-schedule*
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+*.tsbuildinfo
+frontend/next-env.d.ts
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Browser test output (the axe audits in deliverables/wcag/ are kept: they are the WCAG evidence for the jury)
+test-results/
+playwright-report/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.orig
+*.swp
+*~
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Personal notes
+NOTES.md

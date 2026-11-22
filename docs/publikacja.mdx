@@ -1,0 +1,54 @@
+---
+title: "Jak opublikować na dane.gov.pl"
+nav: "Publikacja na dane.gov.pl"
+description: "Dwie drogi do portalu: jedno źródło danych typu XML albo ręczne dodanie zbioru i zasobów."
+order: 1
+---
+# Jak opublikować na dane.gov.pl
+
+Są dwie drogi. Pierwsza wymaga jednego adresu i działa sama. Druga daje pełną kontrolę nad każdym polem.
+
+## Źródło danych XML (zalecane)
+
+W panelu dostawcy dodaj źródło danych typu **XML** z adresem
+[harvester.xml](/api/export/harvester.xml) i częstotliwością „codziennie”. Portal sam pobierze metadane, zasoby i
+słownik, a potem będzie je aktualizował.
+
+<Note>
+  Instytucja na portalu może mieć tylko jedno źródło XML, a jego adresu nie da się zmienić po utworzeniu. Żeby
+  go zmienić, usuń źródło i dodaj nowe.
+</Note>
+
+Suma kontrolna pliku jest w [harvester.md5](/api/export/harvester.md5). Portal używa jej, żeby sprawdzić, czy plik
+się zmienił.
+
+## Typy kolumn (raz, po pierwszym imporcie)
+
+Portal sam zgaduje typ każdej kolumny CSV. Numery budynków to w większości cyfry, więc kolumnę `house_number` uzna za
+liczbową i odrzuci numery takie jak „3A”. W panelu dostawcy otwórz zasób CSV, w „Zmiana typu” ustaw `house_number`
+na „dowolny typ”, a `teryt`, `simc` i `postal_code` na tekst, żeby nie znikały zera wiodące. Portal zapamiętuje te
+ustawienia przy kolejnych importach.
+
+## Mapa na portalu
+
+Portal nie rysuje mapy sam, także z pliku GeoJSON. Mapę daje zasób CSV, ale kolumny z położeniem trzeba raz wskazać
+ręcznie: w panelu dostawcy otwórz zasób CSV, w ustawieniach geolokalizacji przypisz kolumnę `lat` do szerokości
+geograficznej (b), `lon` do długości (l), a `id` (albo `building_name`) do etykiety i zapisz. W CSV brak danych w
+kolumnach liczbowych, datach i kodach oznacza znak umowny „.” (kropka), zadeklarowany przy zasobie.
+
+## Ręcznie
+
+1. W panelu dostawcy ([admin.dane.gov.pl](https://admin.dane.gov.pl)) utwórz zbiór i przepisz tytuł, opis, słowa
+   kluczowe, kategorie i częstotliwość aktualizacji ze strony [metadane zbioru](./metadane-zbioru.mdx).
+2. Dodaj każdy format jako zasób typu link, wklejając adres ze strony [Dane do pobrania](/export). Plik CSV jest
+   zasobem głównym, bo portal sam udostępnia z niego także wersję JSON-LD.
+3. Dodaj słownik XLSX jako osobny zasób, a słownik TXT jako dokument uzupełniający. Portal przyjmuje dokumenty tylko
+   jako doc, docx, pdf, txt lub odt. Pola słownika opisuje [słownik danych](./slownik-danych.mdx).
+4. Wybierz licencję i wpisz w warunkach wymagane uznanie autorstwa (pole „Licencja i atrybucja” w metadanych).
+5. Przy zasobie CSV zaznacz znak umowny „.” (brak informacji) i wskaż kolumny geolokalizacji, jak w sekcji
+   [Mapa na portalu](#mapa-na-portalu).
+
+## Te same metadane dla maszyn
+
+- [dataset.json](/api/export/dataset.json): metadane zbioru w kształcie dane.gov.pl.
+- [harvester.xml](/api/export/harvester.xml): to samo jako plik dla harvestera portalu.

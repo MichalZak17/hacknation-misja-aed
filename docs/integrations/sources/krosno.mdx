@@ -1,0 +1,45 @@
+---
+title: "krosno: Krosno CSV"
+nav: "krosno"
+slug: krosno
+connector: krosno_csv
+code: backend/integrations/connectors/krosno/
+---
+# krosno: Krosno CSV
+
+| | |
+|---|---|
+| **Direction** | **Pull.** We download the file; no webhook. |
+| Data URL | `https://api.dane.gov.pl/media/resources/20240219/Defibrylator_jAmxQcp.csv` |
+| Catalogue | https://api.dane.gov.pl/1.4/datasets/3624 (metadata from 2024) |
+| Format | CSV, comma-separated, UTF-8 |
+| Records | 21 (2026-11-21) |
+| Attribution | Gmina Miasto Krosno |
+| Connector / priority | `krosno_csv` / 50 |
+| Record key | `Numer Id` |
+| Config | `bounds: [49.64, 21.66, 49.75, 21.85]`, `teryt: 1861011` |
+
+## Example record, as returned
+
+```csv
+Długość geograficzna,Szerokość geograficzna, Nazwa, Lokalizacja, Adres, Numer Id
+21.71133598253567,49.719088753029276,"Defibrylator","Kampus Sportowo-dydaktyczny, portiernia","ul. Stanisława Wyspiańskiego 20, 38-400 Krosno","2"
+```
+
+## Mapping to reference fields
+
+| Reference field | From |
+|---|---|
+| `building_name` | `Lokalizacja` |
+| `address`, `postal_code`, `city` | `Adres`, split on the `NN-NNN City` part |
+| lat / lon | `Szerokość geograficzna` / `Długość geograficzna` |
+| `teryt` | constant from config |
+
+## Quirks
+
+- **Column names** after the first comma start with a space (`" Nazwa"`); the parser trims them.
+- **`Nazwa`** is always "Defibrylator", so the real name is in `Lokalizacja`.
+- **Addresses** sometimes contain a stray `", ,"`.
+- **Same template as Marki:** this file's layout is the one [Marki](./marki.mdx) copied.
+- **Could run on `mapped`:** the config example in [mapped feeds](../mapped-feeds.mdx) is this file, apart
+  from the address splitting.

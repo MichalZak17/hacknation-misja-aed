@@ -1,0 +1,123 @@
+{
+ "page": "/developers",
+ "title": "API dla deweloperów · Misja AED",
+ "viewport": "desktop",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-22T00:23:01.472Z",
+ "url": "http://100.78.88.117:3001/developers",
+ "violations": [],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "9.0pt (12px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"bg-hn-terminal text-hn-terminal-foreground ring-1 ring-border\" aria-live=\"polite\">",
+         "target": [
+          "section[aria-label=\"GET /api/changes\"] > .gap-4.xl\\:sticky.xl\\:top-20 > .bg-hn-terminal.text-hn-terminal-foreground[aria-live=\"polite\"]"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<pre tabindex=\"0\" class=\"type-code max-h-[32rem] overflow-auto p-3 outline-none focus-visible:outline-2 focus-visible:outline-ring\">",
+     "target": [
+      "section[aria-label=\"GET /api/changes\"] > .gap-4.xl\\:sticky.xl\\:top-20 > .bg-hn-terminal.text-hn-terminal-foreground[aria-live=\"polite\"] > .max-h-\\[32rem\\].overflow-auto"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-required-children",
+  "aria-required-parent",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "empty-table-header",
+  "form-field-multiple-labels",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "label-title-only",
+  "label",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "scrollable-region-focusable",
+  "select-name",
+  "skip-link",
+  "tabindex",
+  "table-duplicate-name",
+  "target-size",
+  "td-headers-attr",
+  "th-has-data-cells"
+ ]
+}

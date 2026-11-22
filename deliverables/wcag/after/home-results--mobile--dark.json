@@ -1,0 +1,175 @@
+{
+ "page": "/",
+ "title": "Znajdź najbliższy defibrylator AED · Misja AED",
+ "viewport": "mobile",
+ "theme": "dark",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-22T00:21:28.345Z",
+ "url": "http://100.78.88.117:3001/",
+ "violations": [],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "bgOverlap",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it is overlapped by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<label data-slot=\"label\" class=\"flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 type-body min-h-11 cursor-pointer\" ...>",
+     "target": [
+      ".min-h-11"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "bold",
+        "messageKey": "shortTextContent",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [],
+       "impact": "serious",
+       "message": "Element content is too short to determine if it is actual text content"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<div aria-hidden=\"true\" class=\"flex size-8 cursor-p...\" aria-label=\"Map marker\" role=\"button\" style=\"transform: translate...\">",
+     "target": [
+      ".shadow-md.cursor-pointer.border-2:nth-child(3)"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "7.5pt (10px)",
+        "fontWeight": "normal",
+        "messageKey": "imgNode",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<div class=\"maplibregl-ctrl maplibregl-ctrl-scale\" style=\"width: 82.117px;\">30&nbsp;m</div>",
+         "target": [
+          ".maplibregl-ctrl-scale"
+         ]
+        },
+        {
+         "html": "<canvas class=\"maplibregl-canvas\" tabindex=\"0\" aria-label=\"Map\" role=\"region\" width=\"780\" height=\"928\" style=\"width: 390px; height: 464px; cursor: crosshair;\"></canvas>",
+         "target": [
+          "canvas"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because element contains an image node"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<div class=\"maplibregl-ctrl maplibregl-ctrl-scale\" style=\"width: 82.117px;\">30&nbsp;m</div>",
+     "target": [
+      ".maplibregl-ctrl-scale"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "autocomplete-valid",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "definition-list",
+  "dlitem",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "form-field-multiple-labels",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "label-title-only",
+  "label",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "skip-link",
+  "summary-name",
+  "tabindex",
+  "target-size"
+ ]
+}

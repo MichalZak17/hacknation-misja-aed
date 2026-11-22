@@ -1,0 +1,249 @@
+---
+title: "LLM extraction from OSM free text: findings and model benchmark"
+nav: "LLM extraction report"
+date: 2026-11-21
+source: osm-poland
+code: scripts/llm_bench/
+---
+# LLM extraction from OSM free text
+
+The `osm-poland` source (OpenAEDMap, 18,297 nodes) is the bulk of our data, and most of its useful detail is in Polish
+free text. The brief asks *where is the AED, is it accessible right now, does it work* — exactly what that text
+describes. This report covers what the text contains, how well local LLMs turn it into fields, and which model and
+setup to use. Everything here can be re-run with [scripts/llm_bench/](../../scripts/llm_bench/README.md).
+
+## Summary
+
+| | |
+|---|---|
+| **In use** | The shared **Qwen3.8-27B** that is already on the server, with the `strict` prompt and no evidence field: **117 of 120** test records fully correct, almost nothing invented. Built into every sync; the first full run took 62 minutes and added e.g. 2,211 vehicle AEDs and access conditions for 2,003 devices (see *In production*). |
+| **If we need our own small model** | **Qwen3.5-4B** with the `strict` prompt: **106/120**, **~32 records/s** (the whole dataset in ~7 minutes), ~9 GB of weights, so it fits a 16 GB GPU. |
+| **Biggest efficiency wins** | The `strict` prompt (more accurate *and* fewer tokens on every model); dropping the evidence field (~30–37% fewer output tokens, ~50% faster); one record per request with high concurrency (batching 10 records per request halved both speed and accuracy); sending only distinct, changed texts (18,297 → 13,395 once, then only changes). |
+| **Don't use** | Qwen3.5-2B (makes things up), multi-record batching. Qwen3.5-9B and Qwen3-30B-A3B are slower than Qwen3.5-4B without being better. |
+
+## What the free text contains
+
+Snapshot of 2026-11-21:
+
+| Tag | Records | Notes |
+|---|---|---|
+| `defibrillator:location` | 12,317 | Mostly Polish despite the missing `:pl`; 40 are English |
+| `defibrillator:location:pl` | 5,172 | 481 differ from the generic tag; the connector keeps only `:pl` |
+| `defibrillator:location:en` | 2,407 | Translations; 43 records have *only* English |
+| `description` / `note` / `fixme` | 599 / 241 / 632 | Not mapped today (574 descriptions are dropped) |
+| `opening_hours` | 6,781 | 4,136 are `24/7`; 252 don't parse as OSM syntax |
+
+16,920 records have some text; there are **13,395 distinct inputs** once duplicates are removed, and only those need a
+model.
+
+Structure that can be recovered, by how often it appears:
+
+- **AEDs carried in fire engines: ~2,160 records (12%).** "Samochód ratowniczo-gaśniczy" alone appears 766 times. Only 2
+  are tagged `mobile=yes`, so their coordinates are the fire station's while the device leaves with the crew. This is
+  the biggest gap for readiness and public maps.
+- **Floor** stated in 1,187 texts; 576 of those have no `level` tag.
+- **Indoor/outdoor** inferable for 236 of the 2,328 records with no `indoor` tag; ~116 contradict their tag.
+- **Hours in prose** for 357 records with no `opening_hours` tag; the 252 malformed tags fall into a few fixable types.
+- **Access conditions** (~350): kept in a porter's lodge or with security, key held by someone ("klucz u sołtysa"),
+  siren button at the fire station, staff only, events only.
+- **Capsules and cabinets** (~1,080): colour, alarm when opened, heated, lit; 39 on InPost parcel lockers.
+- **Device counts** ("są 2", "dwa AED") in ~70 notes; **seasonal** availability in ~83.
+- `fixme` is effectively a category list (exact location ~70%, opening hours, existence to confirm); 116 notes carry a
+  data-acquisition date; 94 of 150 `ref` values are addresses.
+
+**Connector bugs found on the way.** When the `location` tag is used as a fallback, 13 records get
+`location_detail = "indoor"` / `"outdoor"` (and one gets `"wall"`). `description`, `note`, `fixme`, `phone` and `:en`
+are dropped.
+
+## How the benchmark works
+
+**Fields extracted.** placement (vehicle / inside building / outside on a building / freestanding outdoor / unknown),
+floor, opening_hours (OSM syntax), access conditions (8 types), seasonal, device count, enclosure (capsule / cabinet),
+plus a short Polish position hint and, optionally, evidence quotes. All requests use vLLM's structured output against a
+JSON schema, so every answer is valid JSON in the schema.
+
+**Test set.** 120 distinct OSM records: 95 with harder text (hours, keys, floors, capsules, fire stations, staffed desks)
+and 25 at random. Qwen3.8-27B pre-labelled them, then **every record was reviewed by hand**: 19 answers were corrected,
+and 24 genuinely ambiguous records list other acceptable answers. Two numbers are reported per run:
+
+- **Exact records**: all seven scored fields right.
+- **Invented**: the model filled a field whose right answer is empty. These are the dangerous errors: a wrong "24/7" or
+  a made-up access condition misleads a rescuer more than an empty field does.
+
+**Prompts.**
+
+- `rules`: field-by-field instructions.
+- `fewshot`: the same plus 5 worked examples.
+- `strict`: `fewshot` with the access rules rewritten as a decision list ("ask staff" only when the AED is kept *in*
+  a staffed room, never inferred from the `access` tag) and 3 counter-examples.
+
+**Hardware.** One A100 40 GB (vGPU, ~36.5 GiB usable), vLLM 0.34, one model at a time, prefix caching on.
+
+## Results: accuracy
+
+Best configuration per model (full table below):
+
+| Model | Size | Prompt | Exact records | Invented | Records/s |
+|---|---|---|---|---|---|
+| Qwen3.8-27B FP8 | 27B dense | strict, no evidence | **117**/120 | 1 | 3.6 (production settings) |
+| Qwen3.5-4B | 4.7B | strict | **106**/120 | 3 | 15 with evidence / 31.7 without |
+| Qwen3.5-9B | 9.7B | strict, no evidence | 104/120 | 11 | 23.1 |
+| Qwen3-30B-A3B-2507 FP8 | 30B MoE, 3B active | strict | 103/120 | 2 | 15.5 |
+| Qwen3-4B-Instruct-2507 FP8 | 4B | strict | 97/120 | 7 | 20.4 |
+| Gemma 4 E4B | 8B (4B effective) | strict | 94/120 | 6 | 43.5 |
+| Qwen3.5-2B | 2.3B | strict, no evidence | 73/120 | 28 | 40.8 |
+
+What the remaining errors are:
+
+- **Qwen3.8-27B**: 3 imperfect records, all borderline access conditions.
+- **Qwen3.5-4B**: 14. Six are "Portiernia …" without "ask staff" (or the reverse). It also adds Mo-Fr to hours
+  like "Godz. pracy 7:30-15:30", and took an indoor pillar ("filar") for an outdoor post. It never invented a vehicle,
+  a floor or a device count.
+- **Gemma 4 E4B**: mostly opening hours (106–108/120).
+- **Qwen3.5-9B**: over-uses "ask staff" (11–12 invented).
+- **Qwen3.5-2B**: invents floors, enclosures and access conditions. Not usable.
+
+The prompt matters as much as the model. The `strict` prompt lifted every model:
+
+| Model | fewshot | strict |
+|---|---|---|
+| Qwen3-4B-2507 | 74 (36 invented) | 97 (7 invented) |
+| Qwen3.5-2B | 51 | 72 |
+| Gemma 4 E4B | 89 | 94 |
+| Qwen3-30B-A3B | 99 | 103 |
+| Qwen3.5-4B | 102 | 106 |
+| Qwen3.8-27B | 111 | 115–117 |
+
+All configurations, re-scored against the final answer key (`python3 scripts/llm_bench/summarize.py`):
+
+| Model | Prompt | Evidence | Batch | Exact records | placement | floor | opening_hours | access_conditions | seasonal | device_count | enclosure | Invented | Out tok/rec |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| qwen3.8-27b-fp8 | strict | no | 1 | **117**/120 | 120 | 120 | 119 | 117 | 120 | 120 | 120 | 1 | 87.0 |
+| qwen3.8-27b-fp8 | strict | yes | 1 | **115**/120 | 120 | 120 | 118 | 116 | 120 | 120 | 120 | 1 | 127.4 |
+| qwen3.8-27b-fp8 | rules | yes | 1 | **113**/120 | 120 | 120 | 119 | 114 | 120 | 120 | 120 | 3 | 135.6 |
+| qwen3.8-27b-fp8 | fewshot | yes | 1 | **111**/120 | 120 | 120 | 119 | 112 | 120 | 120 | 120 | 0 | 128.0 |
+| qwen3.5-4b | strict | yes | 1 | **106**/120 | 119 | 119 | 118 | 112 | 118 | 120 | 119 | 3 | 94.5 |
+| qwen3.5-4b | strict | no | 1 | **104**/120 | 117 | 119 | 118 | 110 | 118 | 120 | 119 | 3 | 64.6 |
+| qwen3.5-9b | strict | no | 1 | **104**/120 | 120 | 120 | 112 | 108 | 120 | 120 | 120 | 11 | 75.0 |
+| qwen3-30b-a3b-2507-fp8 | strict | yes | 1 | **103**/120 | 116 | 120 | 117 | 111 | 120 | 120 | 119 | 2 | 121.7 |
+| qwen3-30b-a3b-2507-fp8 | strict | no | 1 | **103**/120 | 116 | 120 | 118 | 110 | 119 | 120 | 119 | 4 | 79.5 |
+| qwen3.5-4b | fewshot | yes | 1 | **102**/120 | 118 | 120 | 116 | 108 | 120 | 120 | 119 | 1 | 97.0 |
+| qwen3.5-9b | strict | yes | 1 | **101**/120 | 119 | 120 | 112 | 106 | 120 | 120 | 120 | 12 | 111.3 |
+| qwen3.5-9b | fewshot | yes | 1 | **100**/120 | 120 | 120 | 110 | 109 | 120 | 120 | 120 | 0 | 113.0 |
+| qwen3-30b-a3b-2507-fp8 | fewshot | yes | 1 | **99**/120 | 117 | 120 | 118 | 105 | 120 | 120 | 119 | 3 | 124.2 |
+| qwen3-4b-2507-fp8 | strict | yes | 1 | **97**/120 | 114 | 120 | 117 | 106 | 117 | 120 | 119 | 7 | 124.0 |
+| gemma-4-e4b | strict | yes | 1 | **94**/120 | 115 | 120 | 108 | 110 | 118 | 120 | 120 | 6 | 97.6 |
+| qwen3-4b-2507-fp8 | strict | no | 1 | **93**/120 | 111 | 120 | 115 | 105 | 117 | 120 | 119 | 8 | 78.5 |
+| gemma-4-e4b | strict | no | 1 | **92**/120 | 114 | 120 | 106 | 108 | 118 | 120 | 120 | 9 | 69.5 |
+| gemma-4-e4b | fewshot | yes | 1 | **89**/120 | 114 | 120 | 108 | 106 | 119 | 120 | 120 | 3 | 96.9 |
+| qwen3-4b-2507-fp8 | fewshot | no | 1 | **75**/120 | 112 | 120 | 114 | 79 | 117 | 120 | 119 | 37 | 80.4 |
+| qwen3-4b-2507-fp8 | fewshot | yes | 1 | **74**/120 | 114 | 120 | 117 | 78 | 117 | 120 | 117 | 36 | 130.1 |
+| qwen3.5-2b | strict | no | 1 | **73**/120 | 110 | 106 | 110 | 88 | 119 | 120 | 118 | 28 | 67.0 |
+| qwen3.5-2b | strict | yes | 1 | **72**/120 | 109 | 106 | 110 | 90 | 119 | 120 | 117 | 27 | 100.6 |
+| qwen3-4b-2507-fp8 | rules | yes | 1 | **70**/120 | 112 | 118 | 115 | 77 | 120 | 120 | 119 | 37 | 130.1 |
+| qwen3-4b-2507-fp8 | fewshot | yes | 10 | **57**/120 | 113 | 118 | 113 | 66 | 118 | 120 | 118 | 50 | 149.2 |
+| qwen3.5-2b | fewshot | yes | 1 | **51**/120 | 112 | 110 | 108 | 76 | 119 | 120 | 103 | 57 | 106.4 |
+
+## Results: speed
+
+Throughput runs use the `strict` prompt without evidence on distinct real inputs. The small models ran in a benchmark
+container with `--max-num-seqs 128`. The 27B was measured on the shared production server, which allows only 16
+requests at a time; it would be faster with a higher limit, but that wasn't measured (its benchmark container took over
+10 minutes to read the weights from this server's virtual disk and was stopped so production could come back).
+
+| Model | Records/s | Inputs | Concurrency | Est. full run (13,395) | Out tok/rec | Failed |
+|---|---|---|---|---|---|---|
+| gemma-4-e4b | 43.53 | 2000 | 128 | 5 min | 65.5 | 0 |
+| qwen3.5-2b | 40.83 | 2000 | 128 | 5 min | 62.0 | 0 |
+| qwen3.5-4b | 31.67 | 2000 | 128 | 7 min | 61.4 | 1 |
+| qwen3.5-9b | 23.11 | 2000 | 128 | 10 min | 68.5 | 0 |
+| qwen3-4b-2507-fp8 | 20.37 | 2000 | 128 | 11 min | 73.5 | 0 |
+| qwen3-30b-a3b-2507-fp8 | 15.48 | 2000 | 128 | 14 min | 73.9 | 0 |
+| qwen3.8-27b-fp8 (production, max-num-seqs 16) | 3.56 | 500 | 16 | 63 min | 82.0 | 0 |
+
+Speed findings:
+
+- **One record per request beats batching.** vLLM already batches concurrent requests on the GPU. Packing 10 records
+  into one request halved throughput (7.5 vs 14–16 records/s) and cut accuracy from 74 to 57.
+- **Output tokens are the cost.** Dropping the evidence field cuts 29–37% of output tokens and speeds runs up by 48–60%.
+  Accuracy moves between −4 and +3 exact records depending on the model (the 27B scored higher without it,
+  Qwen3-4B-2507 lost 4). Input tokens are almost free: the shared instructions
+  are cached.
+- **Concurrency past 64 adds little on the small models** (Qwen3-4B: 21.7 records/s at 64, 20.4 at 128): the GPU is
+  saturated.
+- **Qwen3-30B-A3B is a mixture-of-experts model**, but with weights filling ~31 GB of the 36 GB, too little memory is left
+  for parallel requests, so it ends up slower than the dense 9B.
+- **Rare stuck generations.** Qwen3.5-4B once repeated text until it hit the length limit (1 of 2,000 records, a messy
+  multi-line hours string). A retry, or handing the record to the 27B, covers it.
+- Startup is 2.5–3 minutes per small model. A cold 27B load took over 10 minutes because of the virtual disk; from the
+  memory cache it loads in seconds.
+
+## In production
+
+LLM extraction is part of every sync (`backend/integrations/enrichment/`, switched on with `LLM_ENABLED=true`). It uses
+the shared Qwen3.8-27B with the `strict` prompt and no evidence field (`PROMPT_VERSION = "strict-v1"`), 16 parallel
+requests.
+
+- **Where it runs.** Between the diff and the write, outside the database transaction. Each connector says what the
+  model reads (`text_input()`): OSM sends its free-text tags plus `opening_hours`, `level`, `indoor` and `access`, as
+  benchmarked; other sources send their normalised location text. Records with no free text are not sent (the four
+  small city feeds have none).
+- **Only changed texts.** Answers are cached in `TextExtraction` by sha256(prompt version, model, input), and a record
+  is sent only when its input key differs from the one stored with its last answer. A new prompt or model re-extracts
+  everything, cache first.
+- **Checked before use.** Out-of-range floors, device counts of 1, `opening_hours` that don't read as OSM syntax and
+  unknown enum values are dropped. Answers are mapped onto Device fields (vehicle → `is_mobile`, placement → `indoor`).
+- **Below every source.** The merge fills a field from `SourceRecord.inferred` only when no live source states it, and
+  marks it `method: "inferred"` in `field_sources`. The admin UI shows these as **AI** with the source they came from,
+  and each record shows the full answer, including the position hint, enclosure and device count.
+- **Never blocks a sync.** One health check before calling; a run stops calling the model once most calls fail. Records
+  without an answer keep their previous one and are retried on the next sync.
+- **The OSM connector** no longer copies prose (e.g. "Całodobowo") into `opening_hours`; it stays in
+  `opening_hours_raw` for the model to convert.
+
+### First full run (forced historical sync of every source, 2026-11-21)
+
+| Source | Records sent | Distinct inputs (model calls) | Failed | Time |
+|---|---|---|---|---|
+| osm-poland | 17,117 | 13,396 | 0 | 62 min (3.6 calls/s) |
+| warszawa-19115 | 708 | 647 | 0 | 3.4 min |
+| krosno, legionowo, marki, przemysl | 0 (no free text) | — | — | < 1 s each |
+
+What it added to the 18,970 active devices (values no source stated):
+
+| Field | From a source | Added by the LLM |
+|---|---|---|
+| `is_mobile` (AED carried in a vehicle) | 2 | **2,211** |
+| `placement` | 0 | **16,493** (inside 9,046 · outside wall 4,847 · vehicle 2,213 · freestanding 387) |
+| `access_conditions` | 0 | **2,003** devices (ask staff 1,329 · opening hours only 499 · siren button 163 · phone 71 · events 39 · key 32 · staff only 28 · other 46) |
+| `opening_hours` | 6,705 | **794** |
+| `floor` | 3,712 | **727** |
+| `indoor` | 16,569 | **644** |
+| `seasonal` | 0 | **79** |
+
+A random check of 12 inferred vehicle AEDs found all 12 correct (fire engines and one police car). Most sampled access
+conditions match their text; a few look generous from the location text alone, which is expected from the benchmark's
+remaining errors (borderline "ask staff" cases).
+
+**Next periodic syncs** send only new or edited texts: seconds per day.
+**Switching to Qwen3.5-4B** remains the option for our own deployment (e.g. a 16 GB GPU) or a much faster backfill;
+set `LLM_MODEL`, which changes every cache key and re-extracts.
+
+## Limits of this benchmark
+
+- **The answer key started from Qwen3.8-27B's output**, so its score is somewhat flattering. Every label was reviewed by
+  hand, though, and the smaller models get no such advantage.
+- **The `strict` prompt was written after looking at the 4B models' errors on this same set.** Its gain is measured
+  in-sample. Its examples are synthetic, not taken from the set.
+- **120 records is a small set.** Differences of 2–3 exact records between models are within noise.
+- **Untested models.** Bielik (the Polish model family) needs a Hugging Face login, which this server doesn't have.
+  Qwen3.5-35B-A3B FP8 (~36 GB) doesn't fit next to the KV cache.
+
+## Reproduce
+
+```bash
+cd scripts/llm_bench
+python3 run.py --model qwen --prompt strict --no-evidence --gold eval_gold.jsonl   # against the shared 27B
+./bench_all.sh /path/to/all_inputs.jsonl     # every candidate; stop the shared vLLM first (see README)
+python3 summarize.py
+```

@@ -1,0 +1,74 @@
+---
+title: "Gmina i miejscowość ze współrzędnych"
+nav: "Gmina i miejscowość"
+description: "Jak uzupełniamy kod TERYT gminy i miejscowość na podstawie położenia AED i urzędowych granic PRG, i czego celowo nie uzupełniamy."
+order: 5
+---
+# Gmina i miejscowość ze współrzędnych
+
+Większość urządzeń w zbiorze pochodzi z OpenStreetMap i nie ma adresu. W OSM defibrylator jest osobnym punktem
+wewnątrz budynku. Nazwa i adres budynku są zapisane na innym obiekcie mapy, którego OpenAEDMap nie udostępnia. Znamy
+więc dokładne współrzędne urządzenia, ale nie wiemy, jaki jest jego adres.
+
+Ze współrzędnych da się jednak bez zgadywania ustalić **gminę** (kod TERYT), a w mieście także **miejscowość**.
+Uzupełniamy tylko te dwa pola i tylko wtedy, gdy wynik jest pewny.
+
+## Co uzupełniamy
+
+| Pole | Kiedy |
+|---|---|
+| `teryt` (kod TERYT gminy) | Zawsze, gdy punkt leży w Polsce i nie jest bliżej niż 30 m od granicy innej gminy. |
+| `city` (miejscowość) | Tylko gdy punkt leży w mieście i nie jest bliżej niż 30 m od granicy tego miasta. |
+
+Na stronie urządzenia przy tych polach widać dopisek „Ze współrzędnych”. W sekcji „Pochodzenie pól” mają one
+oznaczenie **Geo**, a w danych `field_sources` zawiera `"source": "prg", "method": "geocoded"`. Strona pokazuje też
+nazwę gminy (np. „gmina wiejska Zawoja”), odczytaną z kodu TERYT.
+
+## Czego nie uzupełniamy
+
+- **Ulicy i numeru budynku.** Najbliższy punkt adresowy często należy do innego budynku: na rogu ulic, w szpitalu
+  czy galerii z wieloma adresami albo w schronisku górskim, które adresu nie ma.
+- **Kodu pocztowego.** W Polsce kod pocztowy przypisany jest do ulicy i zakresu numerów, a nie do obszaru. Nie ma
+  urzędowej mapy obszarów kodów pocztowych, więc kod wyznaczony ze współrzędnych byłby zgadywaniem.
+- **Miejscowości na wsi.** Obszar wiejski gminy obejmuje wiele wsi, a granice wsi nie są urzędowo wyznaczone. Na wsi
+  podajemy więc tylko gminę.
+
+Puste pole jest lepsze niż błędne. O położeniu urządzenia i tak najwięcej mówią współrzędne i opis miejsca („Na
+ścianie w jadalni”).
+
+## Pierwszeństwo danych źródła
+
+Wartość ze współrzędnych trafia do rekordu tylko wtedy, gdy żadne źródło nie podaje tego pola. Miejscowość
+z rejestru miejskiego czy tag `addr:city` z OpenStreetMap zawsze wygrywają.
+
+Sprawdziliśmy to na urządzeniach, dla których źródła same podają te pola. Miejscowość ze współrzędnych zgadza się
+z miejscowością ze źródła w 826 na 826 przypadków. Kod TERYT zgadza się w 773 na 774. Jedyna różnica to przedszkole
+z rejestru warszawskiego, które leży tuż za granicą miasta: łącznik przypisuje wszystkim rekordom tego rejestru kod
+Warszawy.
+
+## Skąd są granice
+
+Granice pochodzą z **Państwowego Rejestru Granic (PRG)**, prowadzonego przez Główny Urząd Geodezji i Kartografii
+i udostępnianego bezpłatnie na [geoportal.gov.pl](https://www.geoportal.gov.pl/pl/dane/panstwowy-rejestr-granic-prg/).
+Używamy warstwy jednostek ewidencyjnych (ok. 3200 obszarów). Końcówka kodu jednostki mówi, czy dany obszar jest
+miastem:
+
+| Jednostka | Kod TERYT gminy | Miejscowość |
+|---|---|---|
+| `_1` gmina miejska | `XXXXXX1` | nazwa miasta |
+| `_2` gmina wiejska | `XXXXXX2` | brak |
+| `_4` miasto w gminie miejsko-wiejskiej | `XXXXXX3` | nazwa miasta |
+| `_5` obszar wiejski gminy miejsko-wiejskiej | `XXXXXX3` | brak |
+| `_8` dzielnica Warszawy | `1465011` | Warszawa |
+| `_9` delegatura Krakowa, Łodzi, Poznania lub Wrocławia | kod miasta | nazwa miasta |
+
+## Stan zbioru
+
+Stan po wczytaniu granic, z 18 809 aktywnych urządzeń:
+
+| | Urządzeń |
+|---|---|
+| Kod TERYT ustalony ze współrzędnych | 17 979 |
+| Miejscowość ustalona ze współrzędnych | 10 756 |
+| Bez kodu TERYT (za blisko granicy gminy albo poza Polską) | 56 |
+| Bez miejscowości (głównie AED na wsi) | 7 199 |

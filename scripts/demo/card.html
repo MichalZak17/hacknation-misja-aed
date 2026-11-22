@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Karta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: Montserrat, sans-serif; }
+  body.full { background: radial-gradient(circle at 70% 35%, #2a4d59 0%, #1b333c 55%, #12242b 100%); color: #fff; }
+  body.caption { background: transparent; }
+  .full .wrap { position: absolute; left: 190px; top: 50%; transform: translateY(-50%); }
+  .full img { width: 520px; display: block; margin-bottom: 64px; }
+  .full h1 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 132px; line-height: .92; margin: 0; }
+  .full h1 span { color: #e6013a; }
+  .full .bar { width: 160px; height: 7px; background: #e6013a; margin: 36px 0; }
+  .full p { font-size: 34px; font-weight: 500; margin: 0 0 14px; color: #d6e3e7; }
+  .full .mono { font-family: "JetBrains Mono", monospace; font-size: 30px; color: #fff; margin-top: 10px; }
+  .full .mono b { color: #e6013a; font-weight: 500; }
+  .full .tag { position: absolute; right: 120px; bottom: 90px; font-family: "JetBrains Mono", monospace; font-size: 24px; color: #9fb7bf; text-align: right; line-height: 1.6; }
+
+  .cap { position: absolute; left: 56px; bottom: 56px; max-width: 1180px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cap.top { top: 40px; bottom: auto; }
+  .chip { font-family: "JetBrains Mono", monospace; font-size: 19px; letter-spacing: .5px; color: #fff; background: #e6013a; padding: 6px 14px 5px; text-transform: uppercase; }
+  .box { background: rgba(18, 36, 43, .92); border-left: 8px solid #e6013a; padding: 18px 30px 20px 26px; box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+  .box .t { color: #fff; font-size: 34px; font-weight: 600; line-height: 1.25; }
+  .box .s { color: #b9ccd2; font-size: 23px; font-weight: 500; margin-top: 6px; line-height: 1.35; }
+  .speed { position: absolute; right: 56px; top: 96px; font-family: "JetBrains Mono", monospace; font-size: 30px; color: #fff; background: rgba(18, 36, 43, .92); border: 2px solid #e6013a; padding: 8px 18px; }
+</style>
+</head>
+<body>
+<script>
+  const q = new URLSearchParams(location.search);
+  const kind = q.get("kind") ?? "intro";
+  const esc = (s) => (s ?? "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+  const logo = '<img src="../../marketing/logo/otwarte-aed-poziomy-negatyw.svg" alt="">';
+  if (kind === "intro") {
+    document.body.className = "full";
+    document.body.innerHTML = `<div class="wrap">${logo}<h1>Misja AED<br><span>Dane na ratunek</span></h1><div class="bar"></div>
+      <p>Pokaż AED, zanim ktoś będzie go szukał.</p></div>
+      <div class="tag">HackNation 2026<br>Ministerstwo Cyfryzacji</div>`;
+  } else if (kind === "section") {
+    document.body.className = "full";
+    document.body.innerHTML = `<div class="wrap"><p class="mono"><b>${esc(q.get("n"))}</b></p><h1>${esc(q.get("t"))}</h1><div class="bar"></div><p>${esc(q.get("s"))}</p></div>`;
+  } else if (kind === "criterion") {
+    document.body.className = "full";
+    document.body.innerHTML = `<div class="wrap"><p class="mono">KRYTERIUM OCENY</p><h1><span>${esc(q.get("w"))}</span><br>${esc(q.get("t"))}</h1><div class="bar"></div><p>${esc(q.get("s"))}</p></div>`;
+  } else if (kind === "outro") {
+    document.body.className = "full";
+    document.body.innerHTML = `<div class="wrap">${logo}<h1>Jeden zbiór AED<br><span>dla całej Polski</span></h1><div class="bar"></div>
+      <p>Pokaż AED, zanim ktoś będzie go szukał.</p>
+      <p class="mono"><b>›</b> misja-aed.hackstorm.eu</p>
+      <p class="mono"><b>›</b> dane.hackstorm.eu &nbsp;·&nbsp; API · CSV · GeoJSON · JSON · JSON-LD</p></div>
+      <div class="tag">#OtwarteAED</div>`;
+  } else if (kind === "caption") {
+    document.body.className = "caption";
+    const chip = q.get("chip") ? `<div class="chip">${esc(q.get("chip"))}</div>` : "";
+    const sub = q.get("s") ? `<div class="s">${esc(q.get("s"))}</div>` : "";
+    document.body.innerHTML = `<div class="cap${q.get("pos") === "top" ? " top" : ""}">${chip}<div class="box"><div class="t">${esc(q.get("t"))}</div>${sub}</div></div>`;
+  } else if (kind === "speed") {
+    document.body.className = "caption";
+    document.body.innerHTML = `<div class="speed">▶▶ ${esc(q.get("t"))} przyspieszone</div>`;
+  }
+</script>
+</body>
+</html>

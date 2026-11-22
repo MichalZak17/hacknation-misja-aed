@@ -1,0 +1,95 @@
+---
+title: "Godziny dostępności"
+nav: "Godziny dostępności"
+description: "W jakim zapisie zbiór podaje godziny dostępności AED i jak aplikacja zamienia go na czytelny tekst."
+order: 6
+---
+# Godziny dostępności
+
+Pole `opening_hours` mówi, kiedy z urządzenia można skorzystać. W zbiorze jest zapisane w składni
+[`opening_hours` z OpenStreetMap](https://wiki.openstreetmap.org/wiki/Key:opening_hours), np.
+`Mo 06:00-19:00; Tu-Fr 06:00-18:00; Sa-Su, PH off`. To zapis zrozumiały dla programów, ale nie dla człowieka, więc
+aplikacja pokazuje go jako zwykły tekst, po jednej linii na regułę:
+
+```
+Pon.: 06:00–19:00
+Wt.–pt.: 06:00–18:00
+Sob.–niedz., święta: niedostępny
+```
+
+Pliki do pobrania (CSV, GeoJSON, JSON, JSON-LD) zawierają zawsze zapis OSM, bez tłumaczenia. Czytelny tekst powstaje
+dopiero przy wyświetlaniu, więc ta sama wartość może być pokazana w innym języku. Dziś strona jest po polsku.
+Przygotowany jest też słownik angielski (`Mon: 06:00–19:00`, `Sat–Sun, public holidays: unavailable`), który zostanie
+użyty, gdy strona będzie miała wersję angielską.
+
+Obok jest pole `opening_hours_raw`: godziny dokładnie w takiej postaci, w jakiej podało je źródło, także gdy jest to
+opis słowny, np. „Poniedziałek: godz. 8:00-18:00”. Aplikacja pokazuje je bez zmian.
+
+## Jak czytamy zapis OSM
+
+| Zapis OSM | Pokazujemy |
+|---|---|
+| `24/7` | całodobowo, 7 dni w tygodniu |
+| `Mo-Fr 07:30-15:30` | Pon.–pt.: 07:30–15:30 |
+| `07:30-15:30` (bez dni) | Codziennie: 07:30–15:30 |
+| `Mo-Su 06:00-22:00` | Codziennie: 06:00–22:00 |
+| `Sa,Su off`, `PH closed` | Sob., niedz.: niedostępny · Święta: niedostępny |
+| `Sa-Su, PH 00:00-24:00` | Sob.–niedz., święta: całą dobę |
+| `Mo-Fr 15:00-07:00` | Pon.–pt.: 15:00–07:00 (do następnego dnia) |
+| `Apr-Oct 09:00-18:00` | Kwi–paź: 09:00–18:00 |
+| `Apr 14-Oct 15 Mo-Su 09:00-17:00` | 14 kwi – 15 paź, codziennie: 09:00–17:00 |
+| `SH Mo-Fr 08:00-22:00` | Ferie szkolne pon.–pt.: 08:00–22:00 |
+| `Su 08:00-20:00 "tylko niedziele handlowe"` | Niedz.: 08:00–20:00 („tylko niedziele handlowe”) |
+| `Mo-Fr 08:00-16:00+` | Pon.–pt.: 08:00–16:00 lub dłużej |
+
+- `PH` to święta państwowe, `SH` to ferie szkolne.
+- `off` i `closed` pokazujemy jako „niedostępny”, bo pole opisuje dostęp do defibrylatora, a nie godziny otwarcia
+  sklepu czy urzędu.
+- Reguły są pokazane w kolejności z zapisu. W OSM późniejsza reguła nadpisuje wcześniejszą dla tych samych dni, np.
+  w `Mo-Fr 08:00-15:00; Tu off` wtorek jest niedostępny.
+- Reguły można oddzielać średnikiem, przecinkiem albo `||`. Odczytujemy też często spotykane drobne błędy:
+  brakujący średnik między regułami, godziny bez zera z przodu (`7:30`) i dwukropek po dniu (`Mo: closed`).
+
+## Czego nie zgadujemy
+
+Jeśli zapisu nie da się w całości odczytać, aplikacja pokazuje go bez zmian, zamiast pokazywać fragment albo zgadywać.
+Dotyczy to przede wszystkim dni bez godzin, np. `Sa-Su, PH, SH`. W składni OSM taki zapis znaczy „dostępny całą
+dobę”, ale zwykle autor zapomniał dopisać `off`. Przy defibrylatorze pomyłka w tę stronę jest groźna, więc takiej
+reguły nie tłumaczymy.
+
+W danych z 21.11.2026 godziny ma 7528 urządzeń, z czego dla 7525 zapis odczytujemy w całości. Pozostałe 3 mają w OSM
+uszkodzony zapis i widać je w postaci źródłowej.
+
+Godziny podane opisem słownym, bez składni OSM (np. „Całodobowo”), zamienia na zapis OSM model językowy podczas
+synchronizacji. Opisuje to [raport z wydobywania danych z tekstu](./llm-extraction/report.mdx).
+
+## Czy AED jest dostępny teraz
+
+Strona główna i [API](/developers) odpowiadają też na pytanie, czy godziny obejmują daną chwilę. Każda odpowiedź
+`/api/aed/nearest`, `/api/aed/nearby` i `/api/aed/{id}` ma obiekt `availability`:
+
+```json
+{
+  "state": "open",
+  "open_24_7": false,
+  "until": "2026-11-23T15:30:00+01:00",
+  "next_open": null,
+  "reason": null,
+  "checked_at": "2026-11-23T10:00:00+01:00"
+}
+```
+
+- `state`: `open` (dostępny), `closed` (niedostępny, a `next_open` mówi, od kiedy znów będzie) albo `unknown`.
+- Czas liczymy według zegara w Polsce, a `PH` to polskie dni ustawowo wolne od pracy (z Wielkanocą, Bożym Ciałem
+  i Wigilią od 2025 roku).
+- `unknown` podaje powód w `reason`: `none` (brak godzin), `unparsed` (zapisu nie odczytujemy) albo `uncertain`
+  (zależy od ferii szkolnych, reguła jest tylko komentarzem albo ma otwarty koniec, np. `08:00+`). Nie zgadujemy, tak
+  jak przy wyświetlaniu.
+- Parametr `open_now=true` zostawia tylko AED dostępne teraz, a `at=2026-11-23T23:00` sprawdza inną chwilę.
+- `state` mówi tylko o godzinach. Czy z urządzenia może skorzystać każdy, mówi pole `access`.
+
+Ta sama reguła działa w przeglądarce i na serwerze, więc strona i API nigdy nie odpowiadają inaczej. Sprawdziliśmy to
+na wszystkich 989 różnych zapisach godzin w danych z 22.11.2026, w sześciu różnych chwilach.
+
+Kod: `frontend/src/lib/opening-hours.ts` (`parseOpeningHours(value, "pl" | "en")`, `openingState`) i
+`backend/devices/availability.py` (to samo dla API).

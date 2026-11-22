@@ -1,0 +1,603 @@
+{
+ "page": "/developers",
+ "title": "API dla deweloperów · Misja AED",
+ "viewport": "mobile",
+ "theme": "light",
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.1"
+ },
+ "timestamp": "2026-11-22T00:23:05.945Z",
+ "url": "http://100.78.88.117:3001/developers",
+ "violations": [],
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "nodes": [
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<th data-slot=\"table-head\" class=\"text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&amp;:has([role=checkbox])]:pr-0\">Opis</th>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > thead > tr > th:nth-child(3)"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">open: godziny obejmują tę chwilę; closed: nie obejmują; unknown: nie da się tego rozstrzygnąć.</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(1) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Dostępny bez przerwy przez najbliższy tydzień (24/7).</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(2) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Do kiedy jest dostępny (gdy open i nie 24/7).</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(3) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Od kiedy znów będzie dostępny (gdy closed, w ciągu tygodnia).</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(4) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Dlaczego unknown: brak godzin, zapis nieczytelny, albo zależy od ferii, komentarza lub otwartego końca.</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(5) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Sprawdzana chwila (teraz albo at), czas polski.</td>",
+     "target": [
+      "div[aria-label=\"Pola obiektu availability\"] > table > tbody > tr:nth-child(6) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">true tylko dla urządzenia demonstracyjnego (demo=true).</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(1) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Punkt, od którego liczono odległość.</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(2) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Odległość w linii prostej, w metrach (geodezyjna, WGS84).</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(3) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Pełny rekord AED: każde pole wzorcowego zakresu danych (jak w eksportach), plus municipality i updated_at. null = źródło tego nie podaje.</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(4) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Czy godziny dostępności obejmują tę chwilę; pola niżej.</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(5) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Szczegóły urządzenia z pochodzeniem każdego pola (null dla demo).</td>",
+     "target": [
+      "div[aria-label=\"Pola odpowiedzi NearestAed\"] > table > tbody > tr:nth-child(6) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Rekord AED pod stałym adresem /api/aed/{id}.</td>",
+     "target": [
+      "tr:nth-child(7) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Urządzenie na mapie OpenStreetMap.</td>",
+     "target": [
+      "tr:nth-child(8) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    },
+    {
+     "any": [
+      {
+       "id": "color-contrast",
+       "data": {
+        "contrastRatio": 0,
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal",
+        "messageKey": "elmPartiallyObscured",
+        "expectedContrastRatio": "4.5:1"
+       },
+       "relatedNodes": [
+        {
+         "html": "<article class=\"min-w-0 bg-background px-5 py-6 ring-1 ring-border md:px-8 md:py-8\">",
+         "target": [
+          "article"
+         ]
+        }
+       ],
+       "impact": "serious",
+       "message": "Element's background color could not be determined because it's partially obscured by another element"
+      }
+     ],
+     "all": [],
+     "none": [],
+     "impact": "serious",
+     "html": "<td data-slot=\"table-cell\" class=\"p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 min-w-64 whitespace-normal\">Trasa piesza do AED w Mapach Google: od punktu zapytania, a w /api/aed/{id} od miejsca, w którym jest użytkownik.</td>",
+     "target": [
+      "tr:nth-child(9) > .min-w-64.whitespace-normal"
+     ],
+     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+    }
+   ]
+  }
+ ],
+ "passes": [
+  "aria-allowed-attr",
+  "aria-allowed-role",
+  "aria-conditional-attr",
+  "aria-deprecated-role",
+  "aria-hidden-body",
+  "aria-hidden-focus",
+  "aria-prohibited-attr",
+  "aria-required-attr",
+  "aria-required-children",
+  "aria-required-parent",
+  "aria-roles",
+  "aria-valid-attr-value",
+  "aria-valid-attr",
+  "avoid-inline-spacing",
+  "button-name",
+  "bypass",
+  "color-contrast",
+  "document-title",
+  "duplicate-id-aria",
+  "empty-heading",
+  "empty-table-header",
+  "form-field-multiple-labels",
+  "heading-order",
+  "html-has-lang",
+  "html-lang-valid",
+  "label-content-name-mismatch",
+  "label-title-only",
+  "label",
+  "landmark-banner-is-top-level",
+  "landmark-contentinfo-is-top-level",
+  "landmark-main-is-top-level",
+  "landmark-no-duplicate-banner",
+  "landmark-no-duplicate-contentinfo",
+  "landmark-no-duplicate-main",
+  "landmark-one-main",
+  "landmark-unique",
+  "link-in-text-block",
+  "link-name",
+  "list",
+  "listitem",
+  "meta-viewport-large",
+  "meta-viewport",
+  "nested-interactive",
+  "page-has-heading-one",
+  "region",
+  "scrollable-region-focusable",
+  "select-name",
+  "skip-link",
+  "tabindex",
+  "table-duplicate-name",
+  "target-size",
+  "td-headers-attr",
+  "th-has-data-cells"
+ ]
+}

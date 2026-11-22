@@ -1,0 +1,45 @@
+---
+title: "Dokumentacja Misji AED"
+nav: "Przegląd"
+description: "Skąd pochodzą dane o defibrylatorach AED, jak są scalone i jak je opublikować na dane.gov.pl."
+order: 0
+---
+# Dokumentacja Misji AED
+
+Misja AED zbiera dane o defibrylatorach z rozproszonych źródeł, scala je w jeden rekord na urządzenie i publikuje
+jako ogólnopolski zbiór otwartych danych. Ta dokumentacja opisuje zbiór: co zawiera, skąd pochodzi i jak go
+opublikować na [dane.gov.pl](https://dane.gov.pl). Nie wymaga logowania.
+
+<DatasetFacts />
+
+Pliki do pobrania są na stronie [Dane do pobrania](/export). Adresy się nie zmieniają: każda synchronizacja źródeł
+podmienia plik pod tym samym linkiem.
+
+## Od czego zacząć
+
+- **Chcesz opublikować zbiór na dane.gov.pl.** Zacznij od [publikacji na dane.gov.pl](./publikacja.mdx). Najprościej
+  dodać jedno źródło danych typu XML, a portal sam pobierze resztę.
+- **Chcesz wiedzieć, co jest w rekordzie.** [Słownik danych](./slownik-danych.mdx) opisuje każde pole, jego typ i
+  przykład, z podziałem na trzy poziomy zakresu.
+- **Chcesz wiedzieć, skąd są dane.** [Źródła danych](./zrodla-danych.mdx) wymieniają wydawców i licencje, a każde
+  źródło ma własny opis w sekcji „Opisy źródeł”.
+- **Chcesz wiedzieć, kiedy AED jest dostępny.** [Godziny dostępności](./godziny-dostepnosci.mdx) opisują zapis
+  godzin w zbiorze i to, jak aplikacja zamienia go na czytelny tekst.
+- **Budujesz aplikację na tych danych.** [API dla deweloperów](/developers) odpowiada na pytania „gdzie jest
+  najbliższy AED”, „czy jest teraz dostępny” i „ile AED jest w mojej gminie”, z gotowymi zapytaniami do skopiowania.
+- **Chcesz dodać własne źródło.** Zobacz [pliki dysponenta](./integrations/operator-files.mdx) albo
+  [kanały mapowane w kodzie](./integrations/mapped-feeds.mdx).
+
+## Jak powstaje zbiór
+
+1. Każde źródło ma własny łącznik, który pobiera dane i zamienia je na wspólny zakres pól.
+2. Rekordy z różnych źródeł, które opisują to samo urządzenie, są łączone. Dla każdego pola wygrywa najbardziej
+   wiarygodne źródło: dysponent urządzenia, potem miasto, na końcu OpenStreetMap.
+3. Cokolwiek wywnioskowano z tekstu (regułami albo modelem językowym) ma niższy priorytet niż dane źródła i zachowuje
+   informację o pochodzeniu. Opisuje to [raport z wydobywania danych z tekstu](./llm-extraction/report.mdx).
+4. Gdy żadne źródło nie podaje gminy ani miejscowości, ustalamy je ze współrzędnych i urzędowych granic PRG, ale
+   tylko wtedy, gdy wynik jest pewny. Ulicy i kodu pocztowego nie zgadujemy. Szczegóły:
+   [gmina i miejscowość ze współrzędnych](./gmina-i-miejscowosc.mdx).
+5. Gotowy zbiór jest dostępny w CSV, GeoJSON, JSON i JSON-LD, z metadanymi w kształcie wymaganym przez portal.
+
+Kod i pozostałe opisy techniczne, w tym [opis API](./api.md), są w repozytorium projektu.

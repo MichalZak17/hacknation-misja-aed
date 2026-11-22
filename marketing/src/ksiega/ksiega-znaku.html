@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Otwarte AED – księga znaku</title>
+<style>
+@font-face { font-family: "Space Grotesk"; src: url("../fonts/SpaceGrotesk.ttf"); font-weight: 300 700; }
+@font-face { font-family: "Inter"; src: url("../fonts/Inter.ttf"); font-weight: 100 900; }
+@font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.ttf"); font-weight: 100 800; }
+
+:root {
+  --red: #E6013A; --ink: #0B1F28; --green: #12B76A; --mist: #F2F4F5; --graphite: #5B6B73; --line: #D5DCDF;
+}
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Inter", sans-serif; color: var(--ink); font-size: 9.4pt; line-height: 1.5; background: #fff; }
+
+.page { width: 210mm; height: 297mm; padding: 17mm 18mm 15mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+.page:last-child { page-break-after: auto; }
+.page > footer { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between;
+  font: 500 6.8pt/1 "JetBrains Mono", monospace; color: var(--graphite); letter-spacing: .04em; text-transform: uppercase; }
+.page > footer b { color: var(--red); font-weight: 500; }
+
+.kicker { font: 500 7.5pt/1 "JetBrains Mono", monospace; color: var(--red); letter-spacing: .08em; text-transform: uppercase; display: flex; gap: 3mm; align-items: center; }
+.kicker::before { content: ""; width: 7mm; height: 1.4mm; background: var(--red); display: inline-block; }
+h1, h2, h3 { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -.01em; line-height: 1.08; }
+h2 { font-size: 27pt; margin: 4mm 0 7mm; }
+h3 { font-size: 11.5pt; margin: 0 0 2mm; }
+p + p { margin-top: 2.4mm; }
+.lead { font-size: 12pt; line-height: 1.45; font-weight: 400; }
+.muted { color: var(--graphite); }
+.mono { font-family: "JetBrains Mono", monospace; }
+.small { font-size: 8pt; line-height: 1.45; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+.rule { border-top: 0.3mm solid var(--ink); padding-top: 3mm; }
+.tag { display: inline-block; font: 500 7pt/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); margin-bottom: 2mm; }
+svg { display: block; }
+
+/* ---------- cover */
+.cover { background: var(--ink); color: #fff; padding: 20mm; }
+.cover .top { display: flex; justify-content: space-between; font: 500 7.5pt/1.4 "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #9FB3BC; }
+.cover .hero { margin-top: 44mm; }
+.cover .hero svg { width: 100%; }
+.cover .slogan { font-family: "Space Grotesk"; font-weight: 500; font-size: 25pt; line-height: 1.12; margin-top: 20mm; max-width: 140mm; letter-spacing: -.01em; }
+.cover .slogan em { font-style: normal; color: var(--red); }
+.cover .bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; }
+.cover .bottom h1 { font-size: 34pt; font-weight: 700; }
+.cover .bottom .meta { text-align: right; font: 500 7.5pt/1.6 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #9FB3BC; }
+.cover .ghost-cover { position: absolute; right: 0; bottom: 0; width: 132mm; }
+.cover .ghost-cover svg { width: 100%; height: auto; }
+.cover > *:not(.ghost-cover):not(.bar) { position: relative; }
+.cover .bar { position: absolute; left: 0; top: 0; width: 100%; height: 3mm; background: var(--red); }
+
+/* ---------- idea */
+.idea-name { display: grid; grid-template-columns: 1fr 1fr 0.8fr; gap: 6mm; margin-bottom: 9mm; }
+.idea-name .val { font-family: "Space Grotesk"; font-weight: 700; font-size: 15pt; line-height: 1.15; margin-top: 1mm; }
+.idea-name .val.red { color: var(--red); }
+.concept { font-size: 11.2pt; line-height: 1.55; }
+.concept p + p { margin-top: 2.6mm; }
+.lt3 { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 5mm; background: var(--mist); padding: 8mm 10mm; margin-top: 9mm; }
+.lt3 svg { height: 30mm; width: auto; margin: 0 auto; }
+.lt3 .arrow { font: 400 16pt/1 "JetBrains Mono"; color: var(--graphite); }
+.lt3 figcaption { text-align: center; font-size: 7.6pt; color: var(--graphite); margin-top: 3mm; }
+.who { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 3mm; }
+.who span { border: 0.3mm solid var(--ink); padding: 1.2mm 2.6mm; font-size: 8pt; font-weight: 500; }
+
+/* ---------- sign */
+.master { border: 0.3mm solid var(--line); padding: 20mm 16mm; }
+.master svg { width: 100%; }
+.anatomy { display: grid; grid-template-columns: 72mm 1fr; gap: 10mm; margin-top: 9mm; align-items: start; }
+.anatomy .sign-wrap { position: relative; padding: 4mm; }
+.anatomy ol { list-style: none; counter-reset: a; }
+.anatomy li { counter-increment: a; padding: 0 0 3.5mm 10mm; position: relative; }
+.anatomy li::before { content: counter(a); position: absolute; left: 0; top: .2mm; width: 6mm; height: 6mm; background: var(--ink); color: #fff; font: 600 8pt/6mm "JetBrains Mono"; text-align: center; }
+.pin { position: absolute; width: 6mm; height: 6mm; background: var(--red); color: #fff; font: 600 8pt/6mm "JetBrains Mono"; text-align: center; }
+
+/* ---------- construction */
+.drawing { width: 100%; height: auto; }
+.specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 6mm; }
+.specs div { border-top: 0.3mm solid var(--ink); padding-top: 2mm; }
+.specs b { display: block; font: 700 13pt/1.1 "Space Grotesk"; margin-bottom: 1mm; }
+
+/* ---------- min size */
+.minsize { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-top: 4mm; }
+.minsize .box { border: 0.3mm solid var(--line); padding: 6mm; min-height: 62mm; display: flex; flex-direction: column; justify-content: space-between; }
+.minsize .samples { display: flex; align-items: flex-end; gap: 7mm; }
+.minsize .num { font: 700 20pt/1 "Space Grotesk"; }
+.minsize .num small { font-size: 9pt; font-weight: 500; color: var(--graphite); }
+
+/* ---------- variants */
+.variants { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.variant { }
+.variant .sw { height: 33mm; display: flex; align-items: center; justify-content: center; padding: 0 9mm; border: 0.3mm solid var(--line); }
+.variant .sw svg { width: 100%; }
+.variant .sw.dark { background: var(--ink); border-color: var(--ink); }
+.variant .sw.red { background: var(--red); border-color: var(--red); }
+.variant p { font-size: 7.8pt; margin-top: 1.6mm; line-height: 1.35; }
+.variant p b { font-weight: 600; }
+.signs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4mm; margin-top: 4mm; }
+.signs .sw { height: 30mm; padding: 6mm; }
+.signs .sw svg { width: 100%; height: 100%; }
+.tab { margin-top: 6mm; display: flex; gap: 8mm; align-items: center; }
+.browser { width: 96mm; flex: none; border: 0.3mm solid var(--line); background: var(--mist); padding: 2mm 2mm 0; }
+.browser .t { background: #fff; width: 70mm; padding: 1.8mm 2.5mm; display: flex; gap: 2mm; align-items: center; font-size: 7.5pt; }
+.browser .t svg { width: 4.2mm; height: 4.2mm; }
+
+/* ---------- colour */
+.swatches { display: grid; grid-template-columns: 1.4fr 1.4fr 1fr; gap: 4mm; }
+.swatch .chip { height: 46mm; padding: 4mm; display: flex; flex-direction: column; justify-content: flex-end; font: 700 13pt/1.1 "Space Grotesk"; }
+.swatch .chip small { font: 500 7pt/1.4 "JetBrains Mono"; letter-spacing: .05em; text-transform: uppercase; opacity: .85; }
+.swatch table { width: 100%; border-collapse: collapse; margin-top: 2mm; font: 400 7.6pt/1.5 "JetBrains Mono"; }
+.swatch td { padding: .5mm 0; border-bottom: 0.2mm solid var(--line); }
+.swatch td:first-child { color: var(--graphite); width: 18mm; }
+.swatches.secondary .chip { height: 26mm; }
+.secondary { grid-template-columns: repeat(3, 1fr); margin-top: 7mm; }
+.ratio { display: flex; height: 9mm; margin-top: 8mm; }
+.ratio div { display: flex; align-items: center; padding-left: 2.5mm; font: 500 6.8pt/1 "JetBrains Mono"; color: #fff; }
+
+/* ---------- type */
+.type-row { display: grid; grid-template-columns: 50mm 1fr; gap: 8mm; padding: 6mm 0; border-top: 0.3mm solid var(--ink); }
+.type-row .spec { font-size: 8pt; }
+.type-row .spec b { display: block; font-size: 10pt; margin-bottom: 1mm; }
+.specimen-sg { font-family: "Space Grotesk"; }
+.specimen-in { font-family: "Inter"; }
+.specimen-jb { font-family: "JetBrains Mono"; }
+.big { font-size: 34pt; line-height: 1; font-weight: 700; letter-spacing: -.015em; }
+.alpha { font-size: 11pt; margin-top: 3mm; line-height: 1.4; word-break: break-all; }
+.hier { margin-top: 3mm; border-top: 0.3mm solid var(--ink); }
+.hier div { display: grid; grid-template-columns: 30mm 1fr; padding: 2mm 0; border-bottom: 0.2mm solid var(--line); align-items: baseline; }
+.hier span:first-child { font: 500 7pt/1.3 "JetBrains Mono"; color: var(--graphite); text-transform: uppercase; letter-spacing: .04em; }
+
+/* ---------- contrast */
+table.contrast { width: 100%; border-collapse: collapse; font-size: 8.4pt; }
+table.contrast th { text-align: left; font: 500 6.8pt/1.3 "JetBrains Mono"; text-transform: uppercase; letter-spacing: .05em; color: var(--graphite); padding: 0 2mm 2mm 0; border-bottom: 0.3mm solid var(--ink); }
+table.contrast td { padding: 2mm 2mm 2mm 0; border-bottom: 0.2mm solid var(--line); vertical-align: middle; }
+.pair { width: 26mm; height: 9mm; display: flex; align-items: center; justify-content: center; font: 700 10pt/1 "Space Grotesk"; }
+.ok { font: 600 7.4pt/1 "JetBrains Mono"; padding: 1mm 1.6mm; background: var(--ink); color: #fff; }
+.ok.lg { background: #fff; color: var(--ink); border: 0.25mm solid var(--ink); }
+.ok.no { background: #fff; color: var(--red); border: 0.25mm solid var(--red); }
+.rules { margin-top: 7mm; }
+.rules li { margin: 0 0 1.8mm 4mm; }
+
+/* ---------- misuse */
+.misuse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm 5mm; }
+.misuse .frame { position: relative; border: 0.3mm solid var(--line); height: 40mm; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.misuse .frame svg { width: 100%; height: 100%; }
+.misuse .x { position: absolute; inset: 0; }
+.misuse .x::before, .misuse .x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 118%; height: 0.35mm; background: var(--red); transform-origin: center; opacity: .9; }
+.misuse .x::before { transform: translate(-50%, -50%) rotate(27deg); }
+.misuse .x::after { transform: translate(-50%, -50%) rotate(-27deg); }
+.misuse .frame::after { content: "×"; position: absolute; right: 0; top: 0; width: 6.5mm; height: 6.5mm; background: var(--red); color: #fff; font: 700 12pt/6.3mm "Inter"; text-align: center; }
+.misuse figcaption { font-size: 7.8pt; margin-top: 1.8mm; font-weight: 500; display: flex; gap: 1.6mm; }
+.misuse figcaption::before { content: "×"; color: var(--red); font-weight: 700; }
+
+/* ---------- applications */
+.sticker { width: 100mm; height: 70mm; background: #fff; border: 0.3mm solid var(--ink); border-radius: 3mm; overflow: hidden; display: grid; grid-template-rows: 1fr 11mm; box-shadow: 0 0 0 4mm var(--mist); }
+.sticker .main { display: grid; grid-template-columns: 1fr 22mm; gap: 4mm; padding: 6mm 6mm 4mm; }
+.sticker .sign { width: 15mm; }
+.sticker h4 { font: 700 17pt/1.02 "Space Grotesk"; letter-spacing: -.015em; margin-top: 3.5mm; }
+.sticker h4 span { color: var(--red); }
+.sticker .side { display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; gap: 1.5mm; }
+.sticker .qr { width: 22mm; height: 22mm; }
+.sticker .side small { font: 500 5.2pt/1.25 "JetBrains Mono"; text-align: center; }
+.sticker .band { background: var(--red); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 6mm; font: 600 7.4pt/1 "JetBrains Mono"; letter-spacing: .03em; }
+.sticker .band .id { font-weight: 400; }
+.sticker .band .id i { display: inline-block; width: 20mm; border-bottom: 0.25mm solid #fff; margin-left: 1mm; }
+.sticker .desc { font-size: 6.6pt; line-height: 1.35; margin-top: 2mm; color: var(--graphite); }
+
+.post { width: 92mm; height: 92mm; background: var(--ink); color: #fff; padding: 6.5mm; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.post .logo { width: 40mm; }
+.post h4 { font: 700 27pt/1.0 "Space Grotesk"; letter-spacing: -.02em; margin-top: 9mm; }
+.post h4 em { font-style: normal; color: var(--red); }
+.post .stat { font-size: 8pt; line-height: 1.4; color: #C9D7DC; margin-top: 4mm; max-width: 70mm; }
+.post .cta { margin-top: auto; background: var(--red); padding: 2.6mm 3mm; font: 600 8pt/1.2 "Space Grotesk"; display: flex; justify-content: space-between; align-items: center; }
+.post .hash { position: absolute; right: 6.5mm; top: 7.5mm; font: 500 6.4pt/1 "JetBrains Mono"; color: #9FB3BC; }
+.post .ghost { position: absolute; right: -14mm; top: 20mm; width: 46mm; opacity: .12; }
+
+.apps { display: grid; grid-template-columns: 112mm 1fr; gap: 6mm 8mm; align-items: center; }
+.apps + .apps { margin-top: 8mm; }
+.app-note { font-size: 8pt; margin-top: 5mm; }
+
+/* ---------- back */
+.files { width: 100%; border-collapse: collapse; font-size: 8.2pt; }
+.files td { padding: 1.6mm 0; border-bottom: 0.2mm solid var(--line); vertical-align: top; }
+.files td:first-child { font-family: "JetBrains Mono"; font-size: 7.4pt; width: 82mm; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================== 1 COVER -->
+<section class="page cover">
+  <div class="bar"></div>
+  <div class="ghost-cover">{{svg:cover-ghost}}</div>
+  <div class="top"><span>Księga znaku · wersja 1.0</span><span>HackNation 2026 · Misja AED – Dane na ratunek</span></div>
+  <div class="hero">{{svg:poziomy-kolor-ciemne-tlo}}</div>
+  <p class="slogan">Pokaż <em>AED</em>, zanim ktoś będzie go&nbsp;szukał.</p>
+  <div class="bottom">
+    <h1>Księga<br>znaku</h1>
+    <div class="meta">Kampania dla dysponentów<br>defibrylatorów AED<br>#OtwarteAED · listopad 2026</div>
+  </div>
+</section>
+
+<!-- ============================================================== 2 IDEA -->
+<section class="page">
+  <div class="kicker">01 · Idea</div>
+  <h2>Serce, które się<br>nie domyka</h2>
+  <div class="idea-name">
+    <div class="rule"><span class="tag">Nazwa kampanii</span><div class="val">Otwarte AED</div></div>
+    <div class="rule"><span class="tag">Hasło</span><div class="val red">Pokaż AED, zanim ktoś będzie go szukał.</div></div>
+    <div class="rule"><span class="tag">Hashtag</span><div class="val">#OtwarteAED</div></div>
+  </div>
+  <div class="concept">
+    <p>„Otwarte AED” to kampania, która zachęca każdego dysponenta defibrylatora – gminę, szkołę, firmę, szpital, straż – do opublikowania danych o urządzeniu na dane.gov.pl w jednym, wspólnym formacie. Słowo „otwarte” łączy trzy znaczenia: otwarte dane, AED dostępne bez zamków i barier oraz otwartość ludzi, którzy dzielą się informacją. Znak to serce zapisane tak, jak pisze się je w sieci – „&lt;3” obrócone o 90° – złożone z dwóch części, które celowo się nie domykają: serce zbudowane z danych, otwarte na kolejne wpisy. Iskra w środku przypomina o wyładowaniu, które przywraca rytm, a czerwień i granat łączą język ratownictwa z językiem danych. Hasło „Pokaż AED, zanim ktoś będzie go szukał” mówi wprost, po co to robimy: defibrylator, którego nie ma na mapie, nie zdąży pomóc.</p>
+  </div>
+  <figure class="lt3">
+    <div><div>{{svg:lt3a}}</div><figcaption>„&lt;3” – serce zapisane tekstem</figcaption></div>
+    <div class="arrow">→</div>
+    <div><div>{{svg:lt3b}}</div><figcaption>obrót o 90°</figcaption></div>
+    <div class="arrow">→</div>
+    <div><div style="height:30mm">{{svg:big-sign}}</div><figcaption>znak: dwie części, dwa prześwity, iskra</figcaption></div>
+  </figure>
+  <div class="grid2" style="margin-top:9mm">
+    <div class="rule">
+      <h3>Do kogo mówimy</h3>
+      <p class="small">Do dysponentów AED, czyli tych, którzy mają dane o urządzeniu: gdzie dokładnie wisi, w jakich godzinach jest dostępne, czy działa.</p>
+      <div class="who"><span>gminy i miasta</span><span>szkoły i uczelnie</span><span>firmy i galerie</span><span>szpitale i przychodnie</span><span>straż pożarna, OSP</span><span>dworce, operatorzy</span></div>
+    </div>
+    <div class="rule">
+      <h3>Czego od nich chcemy</h3>
+      <p class="small">Jednego kroku: publikacji danych o swoich AED na dane.gov.pl we wspólnym, wzorcowym zakresie danych (lokalizacja, dostępność, sprawność). Każdy nowy wpis domyka mapę, której potrzebują świadkowie zdarzenia i dyspozytorzy.</p>
+    </div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>02</b></span></footer>
+</section>
+
+<!-- ============================================================== 3 SIGN -->
+<section class="page">
+  <div class="kicker">02 · Znak i logotyp</div>
+  <h2>Wersja podstawowa</h2>
+  <div class="master">{{svg:poziomy-kolor}}</div>
+  <p class="small muted" style="margin-top:2.5mm">Wersja podstawowa, pozioma, pełnokolorowa na białym tle. Stosuj ją zawsze, gdy pozwalają na to warunki.</p>
+  <div class="anatomy">
+    <div class="sign-wrap">{{svg:anatomy}}</div>
+    <div>
+      <ol>
+        <li><h3>Płaty serca, czyli „3”</h3><p class="small">Dwa łuki o promieniu 2M w Czerwieni Puls. To emocjonalna, ludzka część znaku.</p></li>
+        <li><h3>Podstawa, czyli „&lt;”</h3><p class="small">Kątownik o ramionach pod 45° w Granacie Noc. Prosty, techniczny element: struktura danych, która podtrzymuje serce.</p></li>
+        <li><h3>Iskra</h3><p class="small">Wyładowanie defibrylatora. Odróżnia znak od zwykłego serca i mówi „AED” nawet bez podpisu.</p></li>
+      </ol>
+      <div class="rule" style="margin-top:2mm">
+        <h3>Logotyp</h3>
+        <p class="small">„Otwarte AED” złożone krojem Space Grotesk Bold i zamienione na krzywe. „Otwarte” w Granacie Noc, „AED” w Czerwieni Puls. Nie składaj logotypu ponownie z fontu – używaj plików z katalogu <span class="mono">logo/</span>.</p>
+      </div>
+      <div class="rule" style="margin-top:4mm">
+        <h3>Prześwity</h3>
+        <p class="small">Dwie przerwy między „3” a „&lt;” są celowe: serce jest otwarte, tak jak dane. Nigdy ich nie zamykaj.</p>
+      </div>
+    </div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>03</b></span></footer>
+</section>
+
+<!-- ============================================================== 4 CONSTRUCTION -->
+<section class="page">
+  <div class="kicker">03 · Konstrukcja</div>
+  <h2>Moduł M</h2>
+  <p class="lead" style="max-width:150mm">Cały znak zbudowany jest z jednego modułu M, równego grubości linii. Znak mieści się w siatce 9M × 8M.</p>
+  <div style="margin:6mm auto 0; width:120mm">{{svg:construction}}</div>
+  <div class="specs">
+    <div><b>9M × 8M</b><span class="small">pole znaku (dokładnie 9M × 8,04M)</span></div>
+    <div><b>r = 2M</b><span class="small">promień osi łuku; zewnętrzny 2,5M, wewnętrzny 1,5M</span></div>
+    <div><b>45°</b><span class="small">ramiona kątownika, styczne do łuków</span></div>
+    <div><b>≈ ¾M</b><span class="small">prześwit między „3” a „&lt;” (łuk skrócony o 15°, ramię o ¼M)</span></div>
+  </div>
+  <div style="margin-top:9mm">{{svg:metrics}}</div>
+  <div class="specs">
+    <div><b>1,75M</b><span class="small">odstęp znaku od logotypu</span></div>
+    <div><b>3,5M</b><span class="small">wysokość wersalików logotypu</span></div>
+    <div><b>6,15M</b><span class="small">linia bazowa liczona od górnej krawędzi znaku</span></div>
+    <div><b>≈ 40,6M</b><span class="small">szerokość wersji poziomej (proporcja ok. 5 : 1)</span></div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>04</b></span></footer>
+</section>
+
+<!-- ============================================================== 5 CLEAR SPACE + MIN SIZE -->
+<section class="page">
+  <div class="kicker">04 · Pole ochronne i wielkość minimalna</div>
+  <h2>Przestrzeń i skala</h2>
+  <div class="grid2" style="grid-template-columns: 1fr 52mm; align-items:start; gap:10mm">
+    <div>
+      <h3>Pole ochronne: 2M</h3>
+      <p class="small">Wokół znaku i wersji poziomej zachowaj wolny obszar o szerokości co najmniej 2M, czyli dwóch grubości linii znaku. W tym polu nie umieszczaj tekstu, innych logo ani krawędzi formatu. Pole ochronne liczymy od skrajnych punktów znaku i logotypu.</p>
+      <p class="small">Pliki w katalogu <span class="mono">logo/</span> mają margines 0,5M; pełne pole ochronne trzeba zachować w projekcie.</p>
+    </div>
+    <div>{{svg:clearspace-sign}}</div>
+  </div>
+  <div style="margin-top:6mm">{{svg:clearspace}}</div>
+
+  <h3 style="margin-top:10mm">Wielkość minimalna</h3>
+  <p class="small muted">Poniżej tych rozmiarów linia i iskra przestają być czytelne. Próbki obok wartości są w skali 1 : 1 (druk).</p>
+  <div class="minsize">
+    <div class="box">
+      <span class="tag">Wersja pozioma</span>
+      <div class="samples">
+        <div style="width:30mm">{{svg:poziomy-kolor}}</div>
+      </div>
+      <div style="display:flex; gap:10mm"><div class="num">30 <small>mm</small></div><div class="num">120 <small>px</small></div></div>
+      <p class="small muted">szerokości w druku / na ekranie</p>
+    </div>
+    <div class="box">
+      <span class="tag">Znak</span>
+      <div class="samples">
+        <div style="width:8mm">{{svg:znak-kolor}}</div>
+        <div style="width:16px">{{svg:znak-favicon}}</div>
+      </div>
+      <div style="display:flex; gap:10mm"><div class="num">8 <small>mm</small></div><div class="num">24 <small>px</small></div><div class="num">16 <small>px</small></div></div>
+      <p class="small muted">znak z iskrą: 8 mm / 24 px; poniżej 24 px tylko wersja uproszczona bez iskry (favicon), do 16 px</p>
+    </div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>05</b></span></footer>
+</section>
+
+<!-- ============================================================== 6 VARIANTS -->
+<section class="page">
+  <div class="kicker">05 · Warianty</div>
+  <h2>Wersje kolorystyczne</h2>
+  <div class="variants">
+    <div class="variant"><div class="sw">{{svg:poziomy-kolor}}</div><p><b>Pełnokolorowa</b> – podstawowa, na białym i jasnym tle (do Mgły #F2F4F5).</p></div>
+    <div class="variant"><div class="sw dark">{{svg:poziomy-kolor-ciemne-tlo}}</div><p><b>Pełnokolorowa na ciemnym tle</b> – podstawa i „Otwarte” w bieli, na Granacie Noc lub ciemnych zdjęciach.</p></div>
+    <div class="variant"><div class="sw">{{svg:poziomy-mono}}</div><p><b>Monochromatyczna</b> – czarna, do druku jednobarwnego, faksów, grawerunku i pieczątek.</p></div>
+    <div class="variant"><div class="sw dark">{{svg:poziomy-negatyw}}</div><p><b>Negatyw</b> – biała, na Granacie Noc, czerni i jednolitych ciemnych tłach.</p></div>
+    <div class="variant"><div class="sw">{{svg:poziomy-czerwony}}</div><p><b>Jednobarwna czerwona</b> – gdy dostępny jest tylko kolor Puls (np. naklejki sitodrukowe).</p></div>
+    <div class="variant"><div class="sw red">{{svg:poziomy-negatyw}}</div><p><b>Negatyw na czerwieni</b> – biała wersja na pełnym polu Czerwieni Puls (kontrast 4,74 : 1).</p></div>
+  </div>
+  <h3 style="margin-top:8mm">Znak samodzielny</h3>
+  <div class="signs variants">
+    <div class="variant"><div class="sw">{{svg:znak-kolor}}</div><p><b>Kolor</b></p></div>
+    <div class="variant"><div class="sw dark">{{svg:znak-kolor-ciemne-tlo}}</div><p><b>Kolor, ciemne tło</b></p></div>
+    <div class="variant"><div class="sw">{{svg:znak-mono}}</div><p><b>Mono</b></p></div>
+    <div class="variant"><div class="sw dark">{{svg:znak-negatyw}}</div><p><b>Negatyw</b></p></div>
+    <div class="variant"><div class="sw">{{svg:znak-favicon}}</div><p><b>Uproszczony</b> – favicon, ikony &lt; 24 px</p></div>
+  </div>
+  <div class="tab">
+    <div class="browser"><div class="t">{{svg:znak-favicon}}<span>Otwarte AED – mapa defibrylatorów</span></div></div>
+    <p class="small muted" style="max-width:70mm">Znak samodzielny stosuj tam, gdzie nazwa jest już obecna lub brak miejsca: ikona aplikacji, avatar w mediach społecznościowych, favicon.</p>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>06</b></span></footer>
+</section>
+
+<!-- ============================================================== 7 COLOUR -->
+<section class="page">
+  <div class="kicker">06 · Kolorystyka</div>
+  <h2>Czerwień, granat<br>i biel</h2>
+  <p class="lead" style="max-width:150mm; margin-bottom:7mm">Czerwień Puls to kolor ratunku i serca, Granat Noc – kolor danych i porządku. Ten sam odcień czerwieni co w systemie HackNation, więc kampania i aplikacja wyglądają jak jedna rodzina.</p>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#E6013A;color:#fff"><small>Podstawowy</small>Czerwień Puls</div>
+      <table><tr><td>HEX</td><td>#E6013A</td></tr><tr><td>RGB</td><td>230 1 58</td></tr><tr><td>CMYK</td><td>0 100 75 0</td></tr><tr><td>Pantone</td><td>192 C (najbliższy)</td></tr></table></div>
+    <div class="swatch"><div class="chip" style="background:#0B1F28;color:#fff"><small>Podstawowy</small>Granat Noc</div>
+      <table><tr><td>HEX</td><td>#0B1F28</td></tr><tr><td>RGB</td><td>11 31 40</td></tr><tr><td>CMYK</td><td>90 65 50 75</td></tr><tr><td>Pantone</td><td>Black 6 C (najbliższy)</td></tr></table></div>
+    <div class="swatch"><div class="chip" style="background:#fff;color:#0B1F28;border:0.3mm solid #D5DCDF"><small>Podstawowy</small>Biel</div>
+      <table><tr><td>HEX</td><td>#FFFFFF</td></tr><tr><td>RGB</td><td>255 255 255</td></tr><tr><td>CMYK</td><td>0 0 0 0</td></tr><tr><td>Pantone</td><td>– (papier)</td></tr></table></div>
+  </div>
+  <div class="swatches secondary">
+    <div class="swatch"><div class="chip" style="background:#12B76A;color:#0B1F28"><small>Uzupełniający</small>Zieleń Gotowość</div>
+      <table><tr><td>HEX</td><td>#12B76A</td></tr><tr><td>RGB</td><td>18 183 106</td></tr><tr><td>CMYK</td><td>78 0 76 0</td></tr><tr><td>Pantone</td><td>7480 C (najbliższy)</td></tr></table>
+      <p class="small muted" style="margin-top:1.5mm">Tylko status „dostępny / sprawny” na mapach i w danych. Nigdy w znaku.</p></div>
+    <div class="swatch"><div class="chip" style="background:#5B6B73;color:#fff"><small>Uzupełniający</small>Grafit</div>
+      <table><tr><td>HEX</td><td>#5B6B73</td></tr><tr><td>RGB</td><td>91 107 115</td></tr><tr><td>CMYK</td><td>62 45 40 22</td></tr><tr><td>Pantone</td><td>431 C (najbliższy)</td></tr></table>
+      <p class="small muted" style="margin-top:1.5mm">Tekst pomocniczy, podpisy, linie.</p></div>
+    <div class="swatch"><div class="chip" style="background:#F2F4F5;color:#0B1F28"><small>Uzupełniający</small>Mgła</div>
+      <table><tr><td>HEX</td><td>#F2F4F5</td></tr><tr><td>RGB</td><td>242 244 245</td></tr><tr><td>CMYK</td><td>4 2 2 0</td></tr><tr><td>Pantone</td><td>– (tinta 5% Granatu)</td></tr></table>
+      <p class="small muted" style="margin-top:1.5mm">Tła sekcji i kart.</p></div>
+  </div>
+  <div class="ratio">
+    <div style="flex:55; background:#fff; color:#0B1F28; border:0.3mm solid #D5DCDF">Biel 55%</div>
+    <div style="flex:25; background:#0B1F28">Granat 25%</div>
+    <div style="flex:12; background:#E6013A">Puls 12%</div>
+    <div style="flex:5; background:#5B6B73">5%</div>
+    <div style="flex:3; background:#12B76A"></div>
+  </div>
+  <p class="small muted" style="margin-top:3mm">Proporcje w materiałach: dużo bieli, granat jako tekst i tło akcentów, czerwień oszczędnie – tam, gdzie ma przyciągnąć wzrok. Wartości CMYK i Pantone są orientacyjne (papier powlekany); przed drukiem potwierdź je z drukarnią na wzorniku.</p>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>07</b></span></footer>
+</section>
+
+<!-- ============================================================== 8 TYPE -->
+<section class="page">
+  <div class="kicker">07 · Typografia</div>
+  <h2>Trzy kroje, trzy role</h2>
+  <p class="lead" style="max-width:150mm; margin-bottom:6mm">Wszystkie kroje są na licencji SIL Open Font License 1.1 – można je bezpłatnie stosować, osadzać i rozpowszechniać. Wszystkie mają pełne polskie znaki.</p>
+  <div class="type-row">
+    <div class="spec"><b>Space Grotesk</b>Florian Karsten · OFL<br>Bold 700, Medium 500<br><br>Logotyp, nagłówki, hasła, duże liczby.</div>
+    <div class="specimen-sg"><div class="big">Pokaż AED, zanim ktoś będzie go szukał.</div>
+      <div class="alpha">AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ<br>aąbcćdeęfghijklłmnńoóprsśtuwyzźż 0123456789</div></div>
+  </div>
+  <div class="type-row">
+    <div class="spec"><b>Inter</b>Rasmus Andersson · OFL<br>Regular 400, Semibold 600<br><br>Tekst ciągły, interfejsy, formularze, pisma do dysponentów.</div>
+    <div class="specimen-in"><div style="font-size:15pt; line-height:1.3; font-weight:600">Opublikuj dane swojego defibrylatora na dane.gov.pl.</div>
+      <p style="font-size:10pt; margin-top:2mm">Wystarczą: dokładne położenie, adres i opis miejsca, godziny dostępności, informacja, czy urządzenie jest w zamkniętej szafce, oraz data ostatniego przeglądu. Resztę zrobi wspólny format.</p>
+      <div class="alpha" style="font-size:10pt">AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ aąbcćdeęfghijklłmnńoóprsśtuwyzźż 0123456789</div></div>
+  </div>
+  <div class="type-row">
+    <div class="spec"><b>JetBrains Mono</b>JetBrains · OFL<br>Regular 400, Medium 500<br><br>Dane: identyfikatory, współrzędne, kody TERYT, etykiety.</div>
+    <div class="specimen-jb"><div style="font-size:12pt; line-height:1.5">aed_id: PL-AED-0001842<br>lat: 52.229676 · lon: 21.012229<br>dostepnosc: 24/7 · stan: sprawny</div></div>
+  </div>
+  <div class="hier">
+    <div><span>Nagłówek</span><span class="specimen-sg" style="font-size:20pt;font-weight:700">Space Grotesk Bold</span></div>
+    <div><span>Śródtytuł</span><span class="specimen-sg" style="font-size:12pt;font-weight:500">Space Grotesk Medium</span></div>
+    <div><span>Tekst</span><span style="font-size:9.5pt">Inter Regular, interlinia 150%</span></div>
+    <div><span>Etykieta</span><span class="mono" style="font-size:8pt;text-transform:uppercase;letter-spacing:.06em">JetBrains Mono Medium</span></div>
+    <div><span>Zastępczy</span><span style="font-family:Arial, sans-serif;font-size:9.5pt">Arial – tylko w dokumentach biurowych, gdy kroje kampanii są niedostępne</span></div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>08</b></span></footer>
+</section>
+
+<!-- ============================================================== 9 CONTRAST -->
+<section class="page">
+  <div class="kicker">08 · Dostępność</div>
+  <h2>Kontrast zgodny<br>z WCAG 2.2</h2>
+  <p class="lead" style="max-width:155mm; margin-bottom:7mm">Kampania mówi o dostępności, więc sama musi być dostępna. Poziom AA wymaga 4,5 : 1 dla zwykłego tekstu oraz 3 : 1 dla tekstu dużego (od 24 px, lub 18,66 px pogrubionego) i elementów graficznych, w tym znaku.</p>
+  <table class="contrast">
+    <thead><tr><th>Para</th><th>Kolory</th><th>Kontrast</th><th>Tekst zwykły</th><th>Tekst duży, grafika</th></tr></thead>
+    <tbody>
+      <tr><td><div class="pair" style="background:#fff;color:#0B1F28;border:0.3mm solid #D5DCDF">Aa</div></td><td>Granat Noc na Bieli</td><td class="mono">16,92 : 1</td><td><span class="ok">AAA</span></td><td><span class="ok">AAA</span></td></tr>
+      <tr><td><div class="pair" style="background:#F2F4F5;color:#0B1F28">Aa</div></td><td>Granat Noc na Mgle</td><td class="mono">15,34 : 1</td><td><span class="ok">AAA</span></td><td><span class="ok">AAA</span></td></tr>
+      <tr><td><div class="pair" style="background:#fff;color:#E6013A;border:0.3mm solid #D5DCDF">Aa</div></td><td>Czerwień Puls na Bieli</td><td class="mono">4,74 : 1</td><td><span class="ok">AA</span></td><td><span class="ok">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#E6013A;color:#fff">Aa</div></td><td>Biel na Czerwieni Puls</td><td class="mono">4,74 : 1</td><td><span class="ok">AA</span></td><td><span class="ok">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#fff;color:#5B6B73;border:0.3mm solid #D5DCDF">Aa</div></td><td>Grafit na Bieli</td><td class="mono">5,53 : 1</td><td><span class="ok">AA</span></td><td><span class="ok">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#12B76A;color:#0B1F28">Aa</div></td><td>Granat Noc na Zieleni Gotowość</td><td class="mono">6,45 : 1</td><td><span class="ok">AA</span></td><td><span class="ok">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#0B1F28;color:#E6013A">Aa</div></td><td>Czerwień Puls na Granacie Noc</td><td class="mono">3,57 : 1</td><td><span class="ok no">nie</span></td><td><span class="ok lg">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#F2F4F5;color:#E6013A">Aa</div></td><td>Czerwień Puls na Mgle</td><td class="mono">4,30 : 1</td><td><span class="ok no">nie</span></td><td><span class="ok lg">AA</span></td></tr>
+      <tr><td><div class="pair" style="background:#fff;color:#12B76A;border:0.3mm solid #D5DCDF">Aa</div></td><td>Zieleń Gotowość na Bieli</td><td class="mono">2,62 : 1</td><td><span class="ok no">nie</span></td><td><span class="ok no">nie</span></td></tr>
+    </tbody>
+  </table>
+  <ul class="rules small">
+    <li>Tekst ciągły składaj w Granacie Noc na Bieli lub Mgle. Czerwień Puls w tekście – tylko na białym tle.</li>
+    <li>Czerwień na Granacie Noc: wyłącznie duży tekst (hasła, „AED” w logotypie) i grafika – stąd wersja logo na ciemnym tle.</li>
+    <li>Zieleń Gotowość nie niesie informacji sama: status „sprawny” zawsze podpisz tekstem lub ikoną (osoby z daltonizmem nie odróżnią jej od czerwieni).</li>
+    <li>Logo w serwisach internetowych opisuj tekstem alternatywnym „Otwarte AED” (pliki SVG mają już <span class="mono">&lt;title&gt;</span> i <span class="mono">role="img"</span>).</li>
+  </ul>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>09</b></span></footer>
+</section>
+
+<!-- ============================================================== 10 MISUSE -->
+<section class="page">
+  <div class="kicker">09 · Niedozwolone użycia</div>
+  <h2>Czego nie robić<br>ze znakiem</h2>
+  <p class="lead" style="max-width:150mm; margin-bottom:7mm">Znak działa tylko wtedy, gdy wszędzie wygląda tak samo. Używaj wyłącznie plików z katalogu <span class="mono">logo/</span> i skaluj je proporcjonalnie.</p>
+  <div class="misuse-grid">{{misuse}}</div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>10</b></span></footer>
+</section>
+
+<!-- ============================================================== 11 APPLICATIONS -->
+<section class="page">
+  <div class="kicker">10 · Zastosowania</div>
+  <h2>Znak w terenie<br>i w sieci</h2>
+  <div class="apps">
+    <div>
+      <span class="tag">Naklejka na szafkę AED · 100 × 70 mm · skala 1 : 1</span>
+      <div style="padding:4mm">
+        <div class="sticker">
+          <div class="main">
+            <div>
+              <div class="sign">{{svg:znak-kolor}}</div>
+              <h4>Ten AED jest na <span>dane.gov.pl</span></h4>
+              <p class="desc">Jego położenie, godziny dostępności i stan są w otwartych danych. Znajdzie go ratownik, dyspozytor i aplikacja.</p>
+            </div>
+            <div class="side">{{svg:qr}}<small>Gdzie jest<br>najbliższy AED?</small></div>
+          </div>
+          <div class="band"><span>#OtwarteAED</span><span class="id">ID w danych:<i></i></span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Naklejka „Ten AED jest na dane.gov.pl”</h3>
+      <p class="small muted">Dysponent nakleja ją na szafkę po opublikowaniu danych i wpisuje identyfikator urządzenia ze zbioru. Naklejka jest nagrodą i dowodem: pokazuje, że ten AED „jest na mapie”, i zachęca kolejnych dysponentów. Kod QR prowadzi do prototypu (misja-aed.hackstorm.eu).</p>
+    </div>
+  </div>
+  <div class="apps">
+    <div>
+      <span class="tag">Post w mediach społecznościowych · 1080 × 1080 px</span>
+      <div style="padding:4mm 4mm 0">
+        <div class="post">
+          <div class="logo">{{svg:poziomy-kolor-ciemne-tlo}}</div>
+          <span class="hash">#OtwarteAED</span>
+          <h4>Pokaż <em>AED</em>, zanim ktoś będzie go szukał.</h4>
+          <p class="stat">Z każdą minutą bez defibrylacji szansa na przeżycie nagłego zatrzymania krążenia spada nawet o 10%. Defibrylator, którego nie ma na mapie, traci te minuty.</p>
+          <div class="cta"><span>Opublikuj dane swojego AED na dane.gov.pl</span><span>→</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Post „Pokaż AED”</h3>
+      <p class="small muted">Seria postów dla gmin, szkół i firm: jeden komunikat, jedno wezwanie do działania, jeden hashtag. Dysponenci, którzy opublikowali dane, udostępniają post z własną nazwą i liczbą urządzeń – i oznaczają kolejnych.</p>
+    </div>
+  </div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>11</b></span></footer>
+</section>
+
+<!-- ============================================================== 12 FILES -->
+<section class="page">
+  <div class="kicker">11 · Pliki</div>
+  <h2>Pliki znaku</h2>
+  <p class="lead" style="max-width:150mm; margin-bottom:6mm">Wzorcem jest plik SVG (format otwarty, wektorowy, tekst zamieniony na krzywe). Pozostałe formaty są z niego generowane.</p>
+  <table class="files">
+    <tr><td>otwarte-aed-poziomy-kolor.*</td><td>wersja podstawowa, pozioma, pełnokolorowa</td></tr>
+    <tr><td>otwarte-aed-poziomy-kolor-ciemne-tlo.*</td><td>pełnokolorowa na ciemne tło (JPG z tłem Granat Noc)</td></tr>
+    <tr><td>otwarte-aed-poziomy-czerwony.*</td><td>jednobarwna, Czerwień Puls</td></tr>
+    <tr><td>otwarte-aed-poziomy-mono.*</td><td>monochromatyczna, czarna</td></tr>
+    <tr><td>otwarte-aed-poziomy-negatyw.*</td><td>negatyw, biała (JPG z tłem Granat Noc)</td></tr>
+    <tr><td>otwarte-aed-znak-{kolor, kolor-ciemne-tlo, czerwony, mono, negatyw}.*</td><td>znak samodzielny w tych samych wersjach</td></tr>
+    <tr><td>otwarte-aed-znak-favicon.*, favicon.ico, favicon-*.png</td><td>znak uproszczony bez iskry, 16–192 px</td></tr>
+  </table>
+  <div class="grid3" style="margin-top:8mm">
+    <div class="rule"><h3>.svg</h3><p class="small">Wzorzec. Internet, aplikacje, dalsza obróbka.</p></div>
+    <div class="rule"><h3>.pdf</h3><p class="small">Wektor do druku i dla drukarni.</p></div>
+    <div class="rule"><h3>.png · .jpg</h3><p class="small">PNG z przezroczystością (2048 i 512 px), JPG na pełnym tle (2048 px).</p></div>
+  </div>
+  <div class="grid2" style="margin-top:12mm">
+    <div class="rule">
+      <h3>Licencja</h3>
+      <p class="small">Znak, logotyp i księga są oryginalnym projektem zespołu na HackNation 2026. Proponujemy udostępnienie ich na licencji CC BY-SA 4.0, tak jak zbiór danych, by każda gmina i szkoła mogła ich używać bez pytania o zgodę – zgodnie z tą księgą.</p>
+    </div>
+    <div class="rule">
+      <h3>Kampania w jednym zdaniu</h3>
+      <p class="small">Jeden znak na każdej szafce AED, która jest w otwartych danych – aż na mapie nie zostanie ani jedno puste miejsce.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto; margin-bottom:8mm; width:95mm">{{svg:poziomy-kolor}}</div>
+  <footer><span>Otwarte AED · Księga znaku</span><span><b>12</b></span></footer>
+</section>
+
+</body>
+</html>
